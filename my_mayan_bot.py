@@ -1,9 +1,10 @@
+import os
 import telebot
 from datetime import date, datetime, timedelta
 from mayan_waves import waves  # Импортируем данные о волнах
 
 # 🔐 Вставь сюда свой токен:
-TOKEN = "8056299109:AAGalA54I7CoZ2mfR0FLtVohgAJ9zmmYEPc"
+TOKEN = os.getenv("TOKEN")
 
 bot = telebot.TeleBot(TOKEN)
 
