@@ -4,14 +4,13 @@ import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 from datetime import date, datetime, timedelta
 from mayan_waves import waves
+from yellow_star_wave_bilingual import messages
 
 TOKEN = os.getenv("TOKEN")
 bot = telebot.TeleBot(TOKEN)
 
-# Храним язык пользователя
 user_language = {}
 
-# Кнопки меню на двух языках
 menu_buttons = {
     "en": ["📅 Today's Wave", "🎴 Reflect", "📖 About"],
     "ru": ["📅 Текущая Волна", "🎴 Рефлексия", "📖 О проекте"]
@@ -37,20 +36,25 @@ def set_language(message):
 def send_today_wave(message):
     lang = user_language.get(message.chat.id, "en")
     today = date.today()
-    found = False
-    for wave in waves:
-        start_date = datetime.strptime(wave['start_date'], "%Y-%m-%d")
-        end_date = start_date + timedelta(days=12)
-        if start_date.date() <= today <= end_date.date():
-            if lang == "en":
-                text = f"🌊 *{wave['name']} Wave*\n\n{wave['description']}"
-            else:
-                text = f"🌊 Волна *{wave['name']}*\n\n{wave['description']}"
-            bot.send_message(message.chat.id, text, parse_mode='Markdown')
-            found = True
-            break
-    if not found:
-        bot.send_message(message.chat.id, "No wave found for today." if lang == "en" else "Волна на сегодня не найдена.")
+    wave_start = datetime(2025, 4, 25).date()
+    delta = (today - wave_start).days
+
+    if 0 <= delta < len(messages):
+        msg = messages[delta]
+        tone = msg['tone'][lang]
+        archetype = msg['archetype'][lang]
+        text = msg['text'][lang]
+        question = msg['question'][lang]
+
+        day_info = (
+            f"🗓️ Day {delta + 1} — Tone: {tone}\n"
+            f"🌟 Archetype: {archetype}\n\n"
+            f"{text}\n\n"
+            f"❓ {question}"
+        )
+        bot.send_message(message.chat.id, day_info)
+    else:
+        bot.send_message(message.chat.id, "No wave info for today." if lang == "en" else "Информация о волне на сегодня не найдена.")
 
 @bot.message_handler(func=lambda message: message.text in ["📖 About", "📖 О проекте"])
 def about(message):
