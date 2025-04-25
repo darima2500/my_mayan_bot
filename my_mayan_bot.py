@@ -1,15 +1,13 @@
-
 import os
 import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 from datetime import date, datetime, timedelta
 from mayan_waves import waves
 from yellow_star_wave_bilingual import messages
+from language_store import get_language, set_language
 
 TOKEN = os.getenv("TOKEN")
 bot = telebot.TeleBot(TOKEN)
-
-user_language = {}
 
 menu_buttons = {
     "en": ["📅 Today's Wave", "🎴 Reflect", "📖 About"],
@@ -23,9 +21,9 @@ def send_welcome(message):
     bot.send_message(message.chat.id, "Choose your language / Выбери язык:", reply_markup=lang_keyboard)
 
 @bot.message_handler(func=lambda message: message.text in ["🇬🇧 English", "🇷🇺 Русский"])
-def set_language(message):
+def set_user_language(message):
     lang = "en" if message.text == "🇬🇧 English" else "ru"
-    user_language[message.chat.id] = lang
+    set_language(message.chat.id, lang)
     markup = ReplyKeyboardMarkup(resize_keyboard=True)
     for button in menu_buttons[lang]:
         markup.add(KeyboardButton(button))
@@ -34,7 +32,7 @@ def set_language(message):
 
 @bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "📅 Текущая Волна"])
 def send_today_wave(message):
-    lang = user_language.get(message.chat.id, "en")
+    lang = get_language(message.chat.id)
     today = date.today()
     wave_start = datetime(2025, 4, 25).date()
     delta = (today - wave_start).days
@@ -58,7 +56,7 @@ def send_today_wave(message):
 
 @bot.message_handler(func=lambda message: message.text in ["📖 About", "📖 О проекте"])
 def about(message):
-    lang = user_language.get(message.chat.id, "en")
+    lang = get_language(message.chat.id)
     text = (
         "This bot helps you stay in tune with the 13-day Mayan waves, offering insights and reflection questions."
         if lang == "en" else
@@ -68,7 +66,7 @@ def about(message):
 
 @bot.message_handler(func=lambda message: message.text in ["🎴 Reflect", "🎴 Рефлексия"])
 def reflect(message):
-    lang = user_language.get(message.chat.id, "en")
+    lang = get_language(message.chat.id)
     import random
     questions = [
         "What in me is ready to be nourished, not pushed?",
@@ -85,4 +83,4 @@ def reflect(message):
     ]
     bot.send_message(message.chat.id, random.choice(questions))
 
-bot.polling()
+bot.pollin
