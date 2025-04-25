@@ -1,51 +1,87 @@
 import os
 import telebot
+from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 from datetime import date, datetime, timedelta
-from mayan_waves import waves  # Импортируем данные о волнах
+from mayan_waves import waves
 
-# 🔐 Вставь сюда свой токен:
 TOKEN = os.getenv("TOKEN")
-
 bot = telebot.TeleBot(TOKEN)
 
-# Функция для создания клавиатуры с кнопками
-def create_main_menu():
-    markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    button_today = telebot.types.KeyboardButton("/today")
-    button_waves = telebot.types.KeyboardButton("/waves")
-    button_mandala = telebot.types.KeyboardButton("/mandala")
-    button_reflection = telebot.types.KeyboardButton("/reflection")
-    button_help = telebot.types.KeyboardButton("/help")
-    button_about = telebot.types.KeyboardButton("/about")
-    
-    # Добавляем кнопки на клавиатуру
-    markup.add(button_today, button_waves, button_mandala, button_reflection, button_help, button_about)
-    return markup
+# Храним язык пользователя
+user_language = {}
 
-# 📅 Команда /today — покажет текущую волну по дате
-@bot.message_handler(commands=['today'])
+# Кнопки меню на двух языках
+menu_buttons = {
+    "en": ["📅 Today's Wave", "🎴 Reflect", "📖 About"],
+    "ru": ["📅 Текущая Волна", "🎴 Рефлексия", "📖 О проекте"]
+}
+
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    lang_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
+    lang_keyboard.add(KeyboardButton("🇬🇧 English"), KeyboardButton("🇷🇺 Русский"))
+    bot.send_message(message.chat.id, "Choose your language / Выбери язык:", reply_markup=lang_keyboard)
+
+@bot.message_handler(func=lambda message: message.text in ["🇬🇧 English", "🇷🇺 Русский"])
+def set_language(message):
+    lang = "en" if message.text == "🇬🇧 English" else "ru"
+    user_language[message.chat.id] = lang
+    markup = ReplyKeyboardMarkup(resize_keyboard=True)
+    for button in menu_buttons[lang]:
+        markup.add(KeyboardButton(button))
+    welcome_text = "Welcome! Choose an option below:" if lang == "en" else "Добро пожаловать! Выбери действие ниже:"
+    bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
+
+@bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "📅 Текущая Волна"])
 def send_today_wave(message):
-    today_str = date.today().isoformat()
+    lang = user_language.get(message.chat.id, "en")
+    today = date.today()
+    found = False
     for wave in waves:
         start_date = datetime.strptime(wave['start_date'], "%Y-%m-%d")
         end_date = start_date + timedelta(days=12)
-        if start_date.date() <= date.today() <= end_date.date():
-            text = f"🌊 *{wave['name']} Wave*\n\n{wave['description']}"
+        if start_date.date() <= today <= end_date.date():
+            if lang == "en":
+                text = f"🌊 *{wave['name']} Wave*
+
+{wave['description']}"
+            else:
+                text = f"🌊 Волна *{wave['name']}*
+
+{wave['description']}"  # можно позже перевести
             bot.send_message(message.chat.id, text, parse_mode='Markdown')
+            found = True
             break
-    else:
-        bot.send_message(message.chat.id, "No wave found for today 😕")
+    if not found:
+        bot.send_message(message.chat.id, "No wave found for today." if lang == "en" else "Волна на сегодня не найдена.")
 
-# 🔁 Команда /start — приветствие с кнопками меню
-@bot.message_handler(commands=['start'])
-def send_welcome(message):
-    bot.send_message(message.chat.id,
-                     "✨ *Welcome to the Mayan Waves Bot!* ✨\n\n"
-                     "In the Mayan calendar, each day flows within a *13-day wave* — a cycle of energy that invites reflection, creativity, rest, or action.\n\n"
-                     "These waves aren’t about prediction. They’re about *resonance*. Each one offers a theme, a rhythm, a feeling — and you’re invited to tune in.\n\n"
-                     "To discover today’s wave and its guidance, tap /today 🌊\n\n"
-                     "_May you ride the wave with presence._",
-                     parse_mode='Markdown', reply_markup=create_main_menu())
+@bot.message_handler(func=lambda message: message.text in ["📖 About", "📖 О проекте"])
+def about(message):
+    lang = user_language.get(message.chat.id, "en")
+    text = (
+        "This bot helps you stay in tune with the 13-day Mayan waves, offering insights and reflection questions."
+        if lang == "en" else
+        "Этот бот помогает тебе сонастраиваться с 13-дневными майянскими волнами, давая подсказки и вопросы для рефлексии."
+    )
+    bot.send_message(message.chat.id, text)
 
-# 🚀 Запускаем бота
+@bot.message_handler(func=lambda message: message.text in ["🎴 Reflect", "🎴 Рефлексия"])
+def reflect(message):
+    lang = user_language.get(message.chat.id, "en")
+    import random
+    questions = [
+        "What in me is ready to be nourished, not pushed?",
+        "Where in my life am I pretending?",
+        "What am I ready to complete?",
+        "Can I meet myself fully?",
+        "What does my body know that my mind ignores?"
+    ] if lang == "en" else [
+        "Что внутри меня готово к заботе, а не к давлению?",
+        "Где в моей жизни я притворяюсь?",
+        "Что я готов(а) завершить с любовью?",
+        "Могу ли я полностью встретиться с собой?",
+        "Что знает моё тело, о чём забывает разум?"
+    ]
+    bot.send_message(message.chat.id, random.choice(questions))
+
 bot.polling()
