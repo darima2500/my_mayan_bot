@@ -83,4 +83,4 @@ def reflect(message):
     ]
     bot.send_message(message.chat.id, random.choice(questions))
 
-bot.pollin
+bot.polling()
