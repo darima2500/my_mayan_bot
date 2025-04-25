@@ -1,3 +1,4 @@
+
 import os
 import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
@@ -42,13 +43,9 @@ def send_today_wave(message):
         end_date = start_date + timedelta(days=12)
         if start_date.date() <= today <= end_date.date():
             if lang == "en":
-                text = f"🌊 *{wave['name']} Wave*
-
-{wave['description']}"
+                text = f"🌊 *{wave['name']} Wave*\n\n{wave['description']}"
             else:
-                text = f"🌊 Волна *{wave['name']}*
-
-{wave['description']}"  # можно позже перевести
+                text = f"🌊 Волна *{wave['name']}*\n\n{wave['description']}"
             bot.send_message(message.chat.id, text, parse_mode='Markdown')
             found = True
             break
