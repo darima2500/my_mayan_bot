@@ -1,3 +1,4 @@
+
 import os
 import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
@@ -5,6 +6,8 @@ from datetime import date, datetime, timedelta
 from mayan_waves import waves
 from yellow_star_wave_bilingual import messages
 from language_store import get_language, set_language
+from today_yellow_star_wave import today_yellow_star_wave
+
 
 TOKEN = os.getenv("TOKEN")
 bot = telebot.TeleBot(TOKEN)
@@ -82,5 +85,26 @@ def reflect(message):
         "Что знает моё тело, о чём забывает разум?"
     ]
     bot.send_message(message.chat.id, random.choice(questions))
+
+@bot.message_handler(commands=['today'])
+def send_today(message):
+    lang = get_language(message.chat.id)  # 'ru' или 'en'
+
+    tone = today_yellow_star_wave["tone"]
+    wave = today_yellow_star_wave["wave"]
+
+    text = f"""🌞 *Сегодня: Кин {today_yellow_star_wave["kin"]} — {tone["name"][lang]}*
+*{tone["keyword"][lang]}*
+{tone["description"][lang]}
+
+🌟 *{wave["name"][lang]}* ({wave["period"]})
+{wave["description"][lang]}
+
+{wave["archetype"][lang]}
+
+{wave["shadow"][lang]}
+"""
+    bot.send_message(message.chat.id, text, parse_mode="Markdown")
+
 
 bot.polling()
