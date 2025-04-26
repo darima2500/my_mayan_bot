@@ -24,15 +24,18 @@ def send_welcome(message):
     lang_keyboard.add(telebot.types.KeyboardButton("\ud83c\uddec\ud83c\udde7 English"), telebot.types.KeyboardButton("\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043a\u0438\u0439"))
     bot.send_message(message.chat.id, "Choose your language / \u0412\u044b\u0431\u0435\u0440\u0438 \u044f\u0437\u044b\u043a:", reply_markup=lang_keyboard)
 
-@bot.message_handler(func=lambda message: message.text in ["\ud83c\uddec\ud83c\udde7 English", "\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043a\u0438\u0439"])
+@bot.message_handler(func=lambda message: message.text in ["🇬🇧 English", "🇷🇺 Русский"])
 def set_user_language(message):
-    lang = "en" if message.text == "\ud83c\uddec\ud83c\udde7 English" else "ru"
+    lang = "en" if message.text == "🇬🇧 English" else "ru"
     set_language(message.chat.id, lang)
+
     markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     for button in menu_buttons[lang]:
         markup.add(telebot.types.KeyboardButton(button))
-    welcome_text = "Welcome! Choose an option below:" if lang == "en" else "\u0414\u043e\u0431\u0440\u043e \u043f\u043e\u0436\u0430\u043b\u043e\u0432\u0430\u0442\u044c! \u0412\u044b\u0431\u0435\u0440\u0438 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u043d\u0438\u0436\u0435:"
+    
+    welcome_text = "Welcome! Choose an option below:" if lang == "en" else "Добро пожаловать! Выбери действие ниже:"
     bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
+
 
 # Другие обработчики кнопок (Today's Wave, Reflect, About the Project) остаются БЕЗ изменений
 # (...)
