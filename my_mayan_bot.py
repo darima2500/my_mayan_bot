@@ -62,7 +62,7 @@ if __name__ == "__main__":
         print(f"TOKEN: {TOKEN}")
         exit(1)  # <-- остановить выполнение если что-то не передано
     
-    bot.set_webhook(url=f"{WEBHOOK_URL}/{TOKEN}")
+    bot.set_webhook(url=f"{WEBHOOK_URL}/{TOKEN}", allowed_updates=["message"])
     print("Webhook set successfully!")
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
