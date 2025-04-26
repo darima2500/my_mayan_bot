@@ -56,6 +56,58 @@ def webhook():
 def index():
     return "Hello, this is Mayan Bot!"
 
+# 📅 Текущая Волна или Today's Wave
+@bot.message_handler(func=lambda message: message.text in ["📅 Текущая Волна", "📅 Today's Wave"])
+def send_today_wave(message):
+    lang = get_language(message.chat.id)
+    # Здесь ты пишешь, как отправлять текст волны на выбранном языке
+    bot.send_message(message.chat.id, "🌊 Волна ещё наполняется..." if lang == "ru" else "🌊 The wave is still rising...")
+
+# 🎴 Рефлексия или Reflect
+@bot.message_handler(func=lambda message: message.text in ["🎴 Рефлексия", "🎴 Reflect"])
+def reflect(message):
+    lang = get_language(message.chat.id)
+    questions = [
+        "Что внутри меня готово к заботе, а не к давлению?",
+        "Где в моей жизни я притворяюсь?",
+        "Что я готов(а) завершить с любовью?",
+        "Могу ли я полностью встретиться с собой?",
+        "Что знает моё тело, о чём забывает разум?"
+    ] if lang == "ru" else [
+        "What in me is ready to be nourished, not pushed?",
+        "Where in my life am I pretending?",
+        "What am I ready to complete?",
+        "Can I meet myself fully?",
+        "What does my body know that my mind ignores?"
+    ]
+    import random
+    bot.send_message(message.chat.id, random.choice(questions))
+
+# 📖 О проекте или About the Project
+@bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
+def about_project(message):
+    lang = get_language(message.chat.id)
+    text = (
+        "Этот бот создан как пространство соприкосновения с древней мудростью майянского календаря. "
+        "Здесь нет предсказаний — только подсказки энергий дня, помогающие сонастроиться с собой."
+    ) if lang == "ru" else (
+        "This bot is a space to connect with the ancient wisdom of the Mayan calendar. "
+        "No predictions — only hints from the day's energies to help you align with yourself."
+    )
+    bot.send_message(message.chat.id, text)
+
+# ✨ О Календаре или About the Calendar
+@bot.message_handler(func=lambda message: message.text in ["✨ О Календаре", "✨ About the Calendar"])
+def about_calendar(message):
+    lang = get_language(message.chat.id)
+    text = (
+        "Цолькин — священный календарь майя из 260 дней, отражающий внутренние процессы роста и трансформации. "
+        "Каждый день соединяет число (тон) и архетип, создавая уникальный ритм жизни."
+    ) if lang == "ru" else (
+        "Tzolkin is the sacred Mayan calendar of 260 days, reflecting internal processes of growth and transformation. "
+        "Each day combines a number (tone) and an archetype, creating a unique rhythm of life."
+    )
+    bot.send_message(message.chat.id, text)
 if __name__ == "__main__":
     bot.remove_webhook()
     
