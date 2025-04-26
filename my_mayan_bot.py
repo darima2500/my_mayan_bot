@@ -7,8 +7,8 @@ from flask import Flask, request
 from waves_data import waves
 from language_store import get_language, set_language
 
-TOKEN = os.getenv("TOKEN")
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # Мы добавим эту переменную в Railway после
+TOKEN = "8056299109:AAGalA54I7CoZ2mfR0FLtVohgAJ9zmmYEPc"
+WEBHOOK_URL = "https://mymayanbot-production.up.railway.app"  # Мы добавим эту переменную в Railway после
 
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
