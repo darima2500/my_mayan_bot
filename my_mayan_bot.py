@@ -55,6 +55,11 @@ def index():
 
 if __name__ == "__main__":
     bot.remove_webhook()
+    
+    print(f"Webhook URL: {WEBHOOK_URL}")  # ← ВСТАВИТЬ ЭТУ СТРОКУ
+    print(f"TOKEN: {TOKEN}")              # ← И ЭТУ СТРОКУ
+    
     bot.set_webhook(url=f"{WEBHOOK_URL}/{TOKEN}")
     print("Webhook set successfully!")
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
