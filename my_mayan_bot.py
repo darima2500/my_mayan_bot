@@ -4,9 +4,9 @@ import os
 import telebot
 from telebot.types import Update
 from flask import Flask, request
-from waves_data import waves
+from waves_schedule import waves_schedule
+from datetime import date, datetime
 from language_store import get_language, set_language
-from yellow_star_wave import yellow_star_wave
 
 
 TOKEN = "8056299109:AAGalA54I7CoZ2mfR0FLtVohgAJ9zmmYEPc"
@@ -51,8 +51,6 @@ def set_user_language(message):
     bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
 
 
-# Другие обработчики кнопок (Today's Wave, Reflect, About the Project) остаются БЕЗ изменений
-# (...)
 
 # Flask обработка webhook запроса
 @app.route(f"/{TOKEN}", methods=["POST"])
@@ -70,54 +68,35 @@ def webhook():
 def index():
     return "Hello, this is Mayan Bot!"
 
-# 📅 Текущая Волна или Today's Wave
-from datetime import date, datetime
-from yellow_star_wave import yellow_star_wave
 
-# Общее описание Волны Жёлтой Звезды
-wave_description = {
-    "ru": (
-        "🌟 *Волна Жёлтой Звезды* (25 апреля — 7 мая 2025)\n"
-        "Эта волна несёт энергии искусства, гармонии и внутреннего сияния. "
-        "Она связана с энергией планеты Венеры — покровительницы красоты, зрелости, творчества и любви. "
-        "Волна приглашает исследовать свою зрелость, чувствовать естественную красоту жизни в каждом моменте "
-        "и творить в сонастроенности с космическими ритмами.\n\n"
-        "*Архетип Волны:* Свет, несущий семена будущего.\n"
-        "*Тень Волны:* Зависимость от внешнего признания, стремление к недостижимому совершенству."
-    ),
-    "en": (
-        "🌟 *Yellow Star Wave* (April 25 — May 7, 2025)\n"
-        "This wave carries the energies of art, harmony, and inner radiance. "
-        "It is connected to the planet Venus — the guide of beauty, maturity, creativity, and love. "
-        "The wave invites you to explore your maturity, sense the natural beauty of life in every moment, "
-        "and create in attunement with cosmic rhythms.\n\n"
-        "*Wave Archetype:* The light carrying seeds of the future.\n"
-        "*Wave Shadow:* Dependence on external validation, striving for unattainable perfection."
-    )
-}
-
-@bot.message_handler(func=lambda message: message.text in ["📅 Текущая Волна", "📅 Today's Wave"])
+@bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "📅 Текущая Волна"])
 def send_today_wave(message):
-    lang = get_language(message.chat.id)  # 'ru' или 'en'
+    lang = get_language(message.chat.id)
     today = date.today()
-    wave_start = datetime(2025, 4, 25).date()
-    day_number = (today - wave_start).days + 1  # День Волны, начиная с 1
 
-    if 1 <= day_number <= 13:
-        tone_info = yellow_star_wave[day_number - 1]["tone"][lang]
+    found_wave = None
+    for wave in waves_schedule:
+        start = datetime.strptime(wave["start_date"], "%Y-%m-%d").date()
+        end = datetime.strptime(wave["end_date"], "%Y-%m-%d").date()
+        if start <= today <= end:
+            found_wave = wave
+            break
 
-        response = (
-            f"🌞 *{'Сегодня' if lang == 'ru' else 'Today'}: Кин {day_number} — {tone_info['name']}*\n"
-            f"*{tone_info['keywords']}*\n"
-            f"{tone_info['description']}\n\n"
-            f"{wave_description[lang]}"
-        )
-        bot.send_message(message.chat.id, response, parse_mode="Markdown")
+    if found_wave:
+        wave_message = found_wave["get_message_func"](lang)
+        if wave_message:
+            bot.send_message(message.chat.id, wave_message, parse_mode="Markdown")
+        else:
+            bot.send_message(
+                message.chat.id,
+                "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
+            )
     else:
         bot.send_message(
             message.chat.id,
             "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
         )
+
 
 # 🎴 Рефлексия или Reflect
 @bot.message_handler(func=lambda message: message.text in ["🎴 Рефлексия", "🎴 Reflect"])
