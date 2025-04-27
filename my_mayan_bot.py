@@ -20,9 +20,22 @@ menu_buttons = {
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
+    # Шлём красивое приветствие
+    bot.send_message(
+        message.chat.id,
+        "Добро пожаловать в пространство майянских энергий! 🌿\n\n"
+        "Каждый день несёт в себе особую вибрацию времени. "
+        "Этот бот поможет тебе чувствовать ритмы жизни через древнюю мудрость Майя.\n\n"
+        "Выбери язык общения:"
+    )
+
+    # Показываем выбор языка
     lang_keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    lang_keyboard.add(telebot.types.KeyboardButton("\ud83c\uddec\ud83c\udde7 English"), telebot.types.KeyboardButton("\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043a\u0438\u0439"))
-    bot.send_message(message.chat.id, "Choose your language / \u0412\u044b\u0431\u0435\u0440\u0438 \u044f\u0437\u044b\u043a:", reply_markup=lang_keyboard)
+    lang_keyboard.add(
+        telebot.types.KeyboardButton("🇬🇧 English"),
+        telebot.types.KeyboardButton("🇷🇺 Русский")
+    )
+    bot.send_message(message.chat.id, "Choose your language / Выбери язык:", reply_markup=lang_keyboard)
 
 @bot.message_handler(func=lambda message: message.text in ["🇬🇧 English", "🇷🇺 Русский"])
 def set_user_language(message):
