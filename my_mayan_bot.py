@@ -76,12 +76,28 @@ def send_today_wave(message):
             "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
         )
 
-# Обработчик ВСЕХ неожиданных сообщений
+# --- Обработчик ВСЕХ неожиданных сообщений
 @bot.message_handler(func=lambda message: True)
 def handle_unexpected_message(message):
     pass
 
-# Настройка webhook для Railway
+# --- Обработчик webhook для Telegram
+@app.route(f"/{TOKEN}", methods=["POST"])
+def webhook():
+    if request.headers.get('content-type') == 'application/json':
+        json_string = request.get_data().decode('utf-8')
+        update = telebot.types.Update.de_json(json_string)
+        bot.process_new_updates([update])
+        return '', 200
+    else:
+        return 'Invalid request', 400
+
+# --- Корневая страничка Railway (чтобы видеть, что проект живой)
+@app.route("/")
+def index():
+    return "Hello, this is Mayan Bot!"
+
+# --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
     bot.remove_webhook()
     bot.set_webhook(url=f"{WEBHOOK_URL}/{TOKEN}", allowed_updates=["message"])
