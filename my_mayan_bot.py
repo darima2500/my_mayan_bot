@@ -154,7 +154,10 @@ def about_calendar(message):
         "and walk your path with greater clarity and grace."
     )
     bot.send_message(message.chat.id, text)
-
+    
+@bot.message_handler(func=lambda message: True)
+def debug_message(message):
+    print(f"🔍 User sent text: {message.text}")
 # Обработчик всех неожиданных сообщений
 @bot.message_handler(func=lambda message: True)
 def handle_unexpected_message(message):
