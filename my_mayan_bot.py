@@ -108,6 +108,11 @@ def about_calendar(message):
         "Each day combines a number (tone) and an archetype, creating a unique rhythm of life."
     )
     bot.send_message(message.chat.id, text)
+# Обработчик всех неожиданных сообщений
+@bot.message_handler(func=lambda message: True)
+def handle_unexpected_message(message):
+    # Игнорируем всё, что не подошло под основные кнопки
+    pass
 if __name__ == "__main__":
     bot.remove_webhook()
     
