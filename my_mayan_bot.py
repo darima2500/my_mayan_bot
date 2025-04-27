@@ -131,18 +131,30 @@ def about_project(message):
     )
     bot.send_message(message.chat.id, text)
 
-# ✨ О Календаре или About the Calendar
 @bot.message_handler(func=lambda message: message.text in ["✨ О Календаре", "✨ About the Calendar"])
 def about_calendar(message):
     lang = get_language(message.chat.id)
     text = (
-        "Цолькин — священный календарь майя из 260 дней, отражающий внутренние процессы роста и трансформации. "
-        "Каждый день соединяет число (тон) и архетип, создавая уникальный ритм жизни."
+        "Цолькин — это священный календарь майя из 260 дней, отражающий внутреннюю архитектуру самого творения.\n\n"
+        "Он сплетает 20 архетипов — универсальных сил сознания — и 13 тонов — этапов движения и роста. "
+        "Каждый день представляет собой уникальную встречу архетипа и тона, рождая живую вибрацию, которая зеркалит разворачивание жизни.\n\n"
+        "Цолькин — это не просто способ отслеживать время. "
+        "Это космическая карта твоего внутреннего пути, показывающая, как циклы рождения, роста, трансформации и обновления движутся через тебя, "
+        "соединяя тебя с ритмами Земли, звёзд и самого источника жизни.\n\n"
+        "Сонастраиваясь с энергиями Цолькина, ты можешь глубже вспомнить свою истинную природу, "
+        "углубить присутствие в настоящем моменте и идти по своему пути с большей ясностью и лёгкостью."
     ) if lang == "ru" else (
-        "Tzolkin is the sacred Mayan calendar of 260 days, reflecting internal processes of growth and transformation. "
-        "Each day combines a number (tone) and an archetype, creating a unique rhythm of life."
+        "Tzolkin is the sacred Mayan calendar of 260 days, reflecting the inner architecture of creation itself.\n\n"
+        "It weaves together 20 archetypes — universal forces of consciousness — and 13 tones — stages of movement and growth. "
+        "Each day is a unique meeting point between an archetype and a tone, creating a living vibration that mirrors the unfolding of life.\n\n"
+        "Tzolkin is not just a way to track time — it is a cosmic map of your inner journey. "
+        "It shows how cycles of birth, growth, transformation, and renewal move through your being, "
+        "connecting you with the rhythms of the Earth, the stars, and the source of life itself.\n\n"
+        "Through attunement to the Tzolkin, you can remember your true nature, deepen your awareness of the present moment, "
+        "and walk your path with greater clarity and grace."
     )
     bot.send_message(message.chat.id, text)
+
 # Обработчик всех неожиданных сообщений
 @bot.message_handler(func=lambda message: True)
 def handle_unexpected_message(message):
