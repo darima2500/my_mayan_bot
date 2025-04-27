@@ -1,1 +1,1 @@
-web: python my_mayan_bot.py
+web: gunicorn my_mayan_bot:app
