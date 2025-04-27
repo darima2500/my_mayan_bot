@@ -6,8 +6,8 @@ from datetime import date, datetime
 from waves_schedule import waves_schedule
 from language_store import get_language, set_language
 
-TOKEN = "ТВОЙ_ТОКЕН_ЗДЕСЬ"
-WEBHOOK_URL = "https://ТВОЙ_АДРЕС_RAILWAY_ЗДЕСЬ"
+TOKEN = "8056299109:AAGalA54I7CoZ2mfR0FLtVohgAJ9zmmYEPc"
+WEBHOOK_URL = "https://mymayanbot-production.up.railway.app"
 
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
