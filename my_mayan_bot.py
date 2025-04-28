@@ -157,9 +157,22 @@ def about_calendar(message):
     )
     bot.send_message(message.chat.id, text)
 
-# --- Обработчик ВСЕХ неожиданных сообщений
-@bot.message_handler(func=lambda message: True)
-def handle_unexpected_message(message):
+ALLOWED_TEXTS = [
+    "📅 Today's Wave",
+    "📅 Текущая Волна",
+    "🎴 Reflect",
+    "🎴 Рефлексия",
+    "📖 About the Project",
+    "📖 О проекте",
+    "✨ About the Calendar",
+    "✨ О Календаре",
+    "🇬🇧 English",
+    "🇷🇺 Русский"
+]
+
+@bot.message_handler(func=lambda message: message.text in ALLOWED_TEXTS)
+def handle_allowed_buttons(message):
+    # ничего не делаем, просто позволяем основным обработчикам работать
     pass
 
 # --- Обработчик webhook для Telegram
