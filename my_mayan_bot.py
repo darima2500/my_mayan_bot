@@ -160,6 +160,7 @@ def about_calendar(message):
     bot.send_message(message.chat.id, text)
 
 ALLOWED_TEXTS = [
+    "/start"
     "📅 Today's Wave",
     "📅 Текущая Волна",
     "🎴 Reflect",
