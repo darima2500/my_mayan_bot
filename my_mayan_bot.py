@@ -6,8 +6,10 @@ from flask import Flask, request
 from datetime import date, datetime
 from waves_schedule import waves_schedule
 from language_store import get_language, set_language
+from dotenv import load_dotenv
 
-TOKEN = "7645205403:AAEwNR8zxExLwv0YMpH7ddcCaJUCFJ0G-sA"
+load_dotenv()  # <-- инициализируем загрузку переменных
+TOKEN = os.getenv("BOT_TOKEN")
 WEBHOOK_URL = "https://web-production-93b7.up.railway.app"
 
 bot = telebot.TeleBot(TOKEN)
