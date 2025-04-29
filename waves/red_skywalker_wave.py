@@ -52,6 +52,7 @@ wave_info = {
         "en": "Wave Shadow: Restlessness, inconsistency, losing connection with roots while chasing the stars.",
         "ru": "Тень Волны: Непостоянство, неустойчивость, потеря связи с корнями в стремлении к звёздам."
     }
+}
 
     def get_wave_message(lang):
     return wave_info["description"][lang]
