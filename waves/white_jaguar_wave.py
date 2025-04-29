@@ -9,28 +9,27 @@ wave_info = {
     },
 "core_themes": {
     "en": [
-Intuition, Purity, Inner Alignment
-
-Spiritual healing, Astral journeys
-
-Sacred power and wisdom of Earth
-
-Walking between worlds
-
-Shadow: Illusions, distrust of inner knowing
- ],
-    "ru": [ 
-Интуиция, Чистота, Внутренняя Сонастройка
-
-Духовное исцеление, Астральные путешествия
-
-Священная сила и мудрость Земли
-
-Путь между мирами
-
-Тень: Иллюзии, недоверие внутреннему знанию
- ]
+        "Intuition",
+        "Purity",
+        "Inner Alignment",
+        "Spiritual healing",
+        "Astral journeys",
+        "Sacred power and wisdom of Earth",
+        "Walking between worlds",
+        "Shadow: Illusions, distrust of inner knowing"
+    ],
+    "ru": [
+        "Интуиция",
+        "Чистота",
+        "Внутренняя Сонастройка",
+        "Духовное исцеление",
+        "Астральные путешествия",
+        "Священная сила и мудрость Земли",
+        "Путь между мирами",
+        "Тень: Иллюзии, недоверие внутреннему знанию"
+    ]
 },
+
 
 
     "description": {
@@ -56,3 +55,6 @@ Shadow: Illusions, distrust of inner knowing
         "ru": "Тень Волны: Злоупотребление силой, потеря истинности, запутанность в иллюзиях."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
