@@ -7,7 +7,7 @@ from datetime import date, datetime
 from waves_schedule import waves_schedule
 from language_store import get_language, set_language
 from dotenv import load_dotenv
-from tones_data import tones_data
+from tones.tones_data import tones_data
 
 
 def get_current_kin(start_date=datetime(2025, 5, 8)):
