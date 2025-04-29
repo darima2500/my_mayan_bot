@@ -46,5 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Погружение в синдром спасателя, потеря здоровых границ при помощи другим."
     }
 }
+
 def get_wave_message(lang):
     return wave_info["description"][lang]
