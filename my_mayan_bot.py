@@ -73,14 +73,26 @@ def send_today_wave(message):
     lang = get_language(message.chat.id)
     kin_number = get_current_kin()
     tone_number = get_current_tone(kin_number)
-    tone_description = tones_data[tone_number][lang]["description"]  # <-- описание тона
-    
+
+    # получаем name, keywords и description из словаря
+    tone_data = tones_data[tone_number][lang]
+    tone_name = tone_data["name"]
+    tone_keywords = tone_data["keywords"]
+    tone_description = tone_data["description"]
+
+    # собираем красивое сообщение по тону
+    tone_block = (
+        f"🌟 *{tone_name}* (Tone {tone_number})\n"
+        f"_{tone_keywords}_\n\n"
+        f"{tone_description}"
+    )
+
     found_wave = find_wave_by_kin(kin_number)
 
     if found_wave:
         wave_message = found_wave["get_message_func"](lang)
         if wave_message:
-            full_message = f"*{tone_description}*\n\n{wave_message}"  # Сначала описание тона, потом волна
+            full_message = f"{tone_block}\n\n{wave_message}"
             bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
         else:
             bot.send_message(
@@ -92,6 +104,7 @@ def send_today_wave(message):
             message.chat.id,
             "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
         )
+
 
 
 
