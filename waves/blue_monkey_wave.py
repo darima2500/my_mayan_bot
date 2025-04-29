@@ -46,3 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Цинизм, эгоцентризм, потеря доверия и восхищения жизнью."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
