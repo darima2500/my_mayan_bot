@@ -9,25 +9,26 @@ wave_info = {
     },
 
 "core_themes": {
-    "en": [ Healing, Sacred Action, Manifestation
-
-Service through wisdom and presence
-
-Spiritual and communal leadership
-
-Completing through heart-centered power
-
-Shadow: Manipulation, fixing instead of accepting ],
-    "ru": [ Исцеление, Священное Действие, Проявление
-
-Служение через мудрость и присутствие
-
-Духовное и общественное руководство
-
-Завершение через силу сердца
-
-Тень: Манипуляция, исправление вместо принятия ]
+    "en": [
+        "Healing",
+        "Sacred Action",
+        "Manifestation",
+        "Service through wisdom and presence",
+        "Spiritual and communal leadership",
+        "Completing through heart-centered power",
+        "Shadow: Manipulation, fixing instead of accepting"
+    ],
+    "ru": [
+        "Исцеление",
+        "Священное Действие",
+        "Проявление",
+        "Служение через мудрость и присутствие",
+        "Духовное и общественное руководство",
+        "Завершение через силу сердца",
+        "Тень: Манипуляция, исправление вместо принятия"
+    ]
 },
+
 
     "description": {
         "en": (
@@ -52,3 +53,6 @@ Shadow: Manipulation, fixing instead of accepting ],
         "ru": "Тень Волны: Манипуляция, злоупотребление духовной силой, попытки исправить то, что требует глубокого принятия."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
