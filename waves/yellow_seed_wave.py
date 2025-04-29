@@ -46,3 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Чрезмерное руководство чужим ростом, нетерпение к естественному процессу."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
