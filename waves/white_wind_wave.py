@@ -46,3 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Неконтролируемые эмоциональные всплески, потеря ясности и внутреннего покоя."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
