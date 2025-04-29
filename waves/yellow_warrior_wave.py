@@ -46,3 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Упрямое сопротивление, борьба ради борьбы, избегание глубинной истины."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
