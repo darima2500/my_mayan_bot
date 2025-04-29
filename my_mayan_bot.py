@@ -8,7 +8,7 @@ from waves_schedule import waves_schedule
 from language_store import get_language, set_language
 from dotenv import load_dotenv
 
-def get_current_kin(start_date=datetime(2025, 5, 8)):
+    def get_current_kin(start_date=datetime(2025, 5, 8)):
     today = datetime.now()
     delta_days = (today - start_date).days
     kin_number = (delta_days % 260) + 1
