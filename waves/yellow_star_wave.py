@@ -8,27 +8,26 @@ wave_info = {
     "end_date": "2025-05-07",
 
 "core_themes": {
-    "en": [ 
-Art, Harmony, Inner Light
-
-Beauty as a spiritual expression
-
-Connection to cosmic cycles
-
-Venusian energies of maturity and love
-
-Shadow: Dependence on external validation ],
+    "en": [
+        "Art",
+        "Harmony",
+        "Inner Light",
+        "Beauty as a spiritual expression",
+        "Connection to cosmic cycles",
+        "Venusian energies of maturity and love",
+        "Shadow: Dependence on external validation"
+    ],
     "ru": [
-Искусство, Гармония, Внутренний Свет
-
-Красота как духовное выражение
-
-Связь с космическими циклами
-
-Венерианские энергии зрелости и любви
-
-Тень: Зависимость от внешнего признания ]
+        "Искусство",
+        "Гармония",
+        "Внутренний Свет",
+        "Красота как духовное выражение",
+        "Связь с космическими циклами",
+        "Венерианские энергии зрелости и любви",
+        "Тень: Зависимость от внешнего признания"
+    ]
 },
+
 
     "description": {
         "en": (
@@ -52,3 +51,5 @@ Shadow: Dependence on external validation ],
     }
 }
 
+def get_wave_message(lang):
+    return wave_info["description"][lang]
