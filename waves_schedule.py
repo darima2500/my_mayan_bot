@@ -5,7 +5,7 @@ from waves.yellow_sun_wave import get_wave_message as get_yellow_sun_wave_messag
 from waves.red_skywalker_wave import get_wave_message as get_red_skywalker_wave_message
 from waves.white_worldbridger_wave import get_wave_message as get_white_worldbridger_wave_message
 from waves.blue_storm_wave import get_wave_message as get_blue_storm_wave_message
-from waves.yellow_human_wave import get_wave_message as get_yellow_human_wave_message
+from waves.yellow_man_wave import get_wave_message as get_yellow_man_wave_message
 from waves.red_snake_wave import get_wave_message as get_red_snake_wave_message
 from waves.white_mirror_wave import get_wave_message as get_white_mirror_wave_message
 from waves.blue_monkey_wave import get_wave_message as get_blue_monkey_wave_message
@@ -63,10 +63,10 @@ waves_schedule = [
         "get_message_func": get_blue_storm_wave_message,
     },
     {
-        "name": "Yellow Human Wave",
+        "name": "Yellow Man Wave",
         "start_kin": 92,
         "end_kin": 104,
-        "get_message_func": get_yellow_human_wave_message,
+        "get_message_func": get_yellow_man_wave_message,
     },
     {
         "name": "Red Snake Wave",
