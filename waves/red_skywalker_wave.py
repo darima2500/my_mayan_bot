@@ -1,3 +1,4 @@
+# Описание волны Красного Небесного Странника
 wave_info = {
     "name": {
         "en": "Red Skywalker Wave",
@@ -7,29 +8,26 @@ wave_info = {
         "en": "June 29 — July 11, 2025",
         "ru": "29 июня — 11 июля 2025"
     },
-    
-"core_themes": {
-    "en": [
-        "Exploration",
-        "Connection",
-        "Vision",
-        "Bridging Heaven and Earth",
-        "Service to family and community",
-        "Inner expansion through rootedness",
-        "Shadow: Restlessness, loss of grounding"
-    ],
-    "ru": [
-        "Исследование",
-        "Связь",
-        "Видение",
-        "Мост между Небом и Землёй",
-        "Служение семье и сообществу",
-        "Внутреннее расширение через укоренённость",
-        "Тень: Непостоянство, потеря заземления"
-    ]
-},
-
-
+    "core_themes": {
+        "en": [
+            "Exploration",
+            "Connection",
+            "Vision",
+            "Bridging Heaven and Earth",
+            "Service to family and community",
+            "Inner expansion through rootedness",
+            "Shadow: Restlessness, loss of grounding"
+        ],
+        "ru": [
+            "Исследование",
+            "Связь",
+            "Видение",
+            "Мост между Небом и Землёй",
+            "Служение семье и сообществу",
+            "Внутреннее расширение через укоренённость",
+            "Тень: Непостоянство, потеря заземления"
+        ]
+    },
     "description": {
         "en": (
             "This wave carries the energies of exploration, connection, and spiritual guidance.\n\n"
@@ -54,6 +52,6 @@ wave_info = {
     }
 }
 
-    def get_wave_message(lang):
+# Правильное определение функции на новой строке
+def get_wave_message(lang):
     return wave_info["description"][lang]
-
