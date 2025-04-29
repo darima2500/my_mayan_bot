@@ -46,3 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Чрезмерная фиксация на теле, потеря связи с внутренней сутью."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
