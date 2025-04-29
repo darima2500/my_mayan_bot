@@ -7,26 +7,28 @@ wave_info = {
         "en": "June 29 — July 11, 2025",
         "ru": "29 июня — 11 июля 2025"
     },
+    
 "core_themes": {
-    "en": [ Exploration, Connection, Vision
-
-Bridging Heaven and Earth
-
-Service to family and community
-
-Inner expansion through rootedness
-
-Shadow: Restlessness, loss of grounding ],
-    "ru": [ Исследование, Связь, Видение
-
-Мост между Небом и Землёй
-
-Служение семье и сообществу
-
-Внутреннее расширение через укоренённость
-
-Тень: Непостоянство, потеря заземления ]
+    "en": [
+        "Exploration",
+        "Connection",
+        "Vision",
+        "Bridging Heaven and Earth",
+        "Service to family and community",
+        "Inner expansion through rootedness",
+        "Shadow: Restlessness, loss of grounding"
+    ],
+    "ru": [
+        "Исследование",
+        "Связь",
+        "Видение",
+        "Мост между Небом и Землёй",
+        "Служение семье и сообществу",
+        "Внутреннее расширение через укоренённость",
+        "Тень: Непостоянство, потеря заземления"
+    ]
 },
+
 
     "description": {
         "en": (
@@ -50,4 +52,7 @@ Shadow: Restlessness, loss of grounding ],
         "en": "Wave Shadow: Restlessness, inconsistency, losing connection with roots while chasing the stars.",
         "ru": "Тень Волны: Непостоянство, неустойчивость, потеря связи с корнями в стремлении к звёздам."
     }
-}
+
+    def get_wave_message(lang):
+    return wave_info["description"][lang]
+
