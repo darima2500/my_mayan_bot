@@ -7,6 +7,8 @@ from datetime import date, datetime
 from waves_schedule import waves_schedule
 from language_store import get_language, set_language
 from dotenv import load_dotenv
+from tones_data import tones_data
+
 
 def get_current_kin(start_date=datetime(2025, 5, 8)):
     today = datetime.now()
@@ -19,6 +21,9 @@ def find_wave_by_kin(kin_number):
         if wave["start_kin"] <= kin_number <= wave["end_kin"]:
             return wave
     return None
+    
+def get_current_tone(kin_number):
+    return (kin_number - 1) % 13 + 1
 
     
 
@@ -67,12 +72,16 @@ def set_user_language(message):
 def send_today_wave(message):
     lang = get_language(message.chat.id)
     kin_number = get_current_kin()
+    tone_number = get_current_tone(kin_number)
+    tone_description = tones_data[tone_number][lang]["description"]  # <-- описание тона
+    
     found_wave = find_wave_by_kin(kin_number)
 
     if found_wave:
         wave_message = found_wave["get_message_func"](lang)
         if wave_message:
-            bot.send_message(message.chat.id, wave_message, parse_mode="Markdown")
+            full_message = f"*{tone_description}*\n\n{wave_message}"  # Сначала описание тона, потом волна
+            bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
         else:
             bot.send_message(
                 message.chat.id,
@@ -83,6 +92,7 @@ def send_today_wave(message):
             message.chat.id,
             "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
         )
+
 
 
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
