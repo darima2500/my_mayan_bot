@@ -8,6 +8,20 @@ from waves_schedule import waves_schedule
 from language_store import get_language, set_language
 from dotenv import load_dotenv
 
+def get_current_kin(start_date=datetime(2025, 5, 8)):
+    today = datetime.now()
+    delta_days = (today - start_date).days
+    kin_number = (delta_days % 260) + 1
+    return kin_number
+    
+    def find_wave_by_kin(kin_number):
+    for wave in waves_schedule:
+        if wave["start_kin"] <= kin_number <= wave["end_kin"]:
+            return wave
+    return None
+
+    
+
 load_dotenv()  # <-- инициализируем загрузку переменных
 TOKEN = os.getenv("BOT_TOKEN")
 WEBHOOK_URL = "https://web-production-93b7.up.railway.app"
@@ -49,19 +63,11 @@ def set_user_language(message):
     welcome_text = "Welcome! Choose an option below:" if lang == "en" else "Добро пожаловать! Выбери действие ниже:"
     bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
 
-# Обработчик кнопки 📅 Today's Wave
 @bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "📅 Текущая Волна"])
 def send_today_wave(message):
     lang = get_language(message.chat.id)
-    today = date.today()
-
-    found_wave = None
-    for wave in waves_schedule:
-        start = datetime.strptime(wave["start_date"], "%Y-%m-%d").date()
-        end = datetime.strptime(wave["end_date"], "%Y-%m-%d").date()
-        if start <= today <= end:
-            found_wave = wave
-            break
+    kin_number = get_current_kin()
+    found_wave = find_wave_by_kin(kin_number)
 
     if found_wave:
         wave_message = found_wave["get_message_func"](lang)
@@ -77,6 +83,7 @@ def send_today_wave(message):
             message.chat.id,
             "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
         )
+
 
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
 def about_project(message):
