@@ -9,27 +9,24 @@ wave_info = {
     },
 
 "core_themes": {
-    "en": [Enlightenment, Unconditional Love
-
-Connection with Source and Ancestors
-
-Living as radiant authenticity
-
-Sacred play and beauty
-
-Shadow: Arrogance, rejection of feedback ],
-    "ru": [ Просветление, Безусловная Любовь
-
-Связь с Истоком и Предками
-
-Сияние аутентичности
-
-Священная игра и красота
-
-Тень: Гордыня, отказ воспринимать обратную связь
-
- ]
+    "en": [
+        "Enlightenment",
+        "Unconditional Love",
+        "Connection with Source and Ancestors",
+        "Living as radiant authenticity",
+        "Sacred play and beauty",
+        "Shadow: Arrogance, rejection of feedback"
+    ],
+    "ru": [
+        "Просветление",
+        "Безусловная Любовь",
+        "Связь с Истоком и Предками",
+        "Сияние аутентичности",
+        "Священная игра и красота",
+        "Тень: Гордыня, отказ воспринимать обратную связь"
+    ]
 },
+
 
     "description": {
         "en": (
@@ -54,3 +51,6 @@ Shadow: Arrogance, rejection of feedback ],
         "ru": "Тень Волны: Гордыня, отказ воспринимать обратную связь, забвение священного потока, питающего всё сущее."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
