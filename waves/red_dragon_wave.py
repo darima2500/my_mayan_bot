@@ -3,50 +3,49 @@ wave_info = {
         "en": "Red Dragon Wave",
         "ru": "Волна Красного Дракона"
     },
-    "start_date": "2025-05-08",
-    "end_date": "2025-05-20",
-
-"core_themes": {
-    "en": [
-
-Birth, Nurturing, Trust in Life
-
-Primordial mother energy
-
-Inner foundation and safety
-
-Beginning of new cycles
-
-Shadow: Fear of abandonment, survival insecurity ],
-    "ru": [ 
-Рождение, Забота, Доверие Жизни
-
-Первичная материнская энергия
-
-Внутренняя основа и безопасность
-
-Начало новых циклов
-
-Тень: Страх покинутости, небезопасность выживания ]
-},
-
+    "period": {
+        "en": "May 8 — May 20, 2025",
+        "ru": "8 — 20 мая 2025"
+    },
+    "core_themes": {
+        "en": [
+            "Birth",
+            "Nurturing",
+            "Trust in Life",
+            "Connection to Source",
+            "Shadow: Overdependence, fear of separation"
+        ],
+        "ru": [
+            "Рождение",
+            "Забота",
+            "Доверие к жизни",
+            "Связь с Источником",
+            "Тень: Зависимость, страх одиночества"
+        ]
+    },
     "description": {
         "en": (
-            "🐉 *Red Dragon Wave (May 8 — May 20, 2025)*\n"
-            "This wave carries energies of birth, initiating a new cycle, and returning to the primal source. "
-            "The Red Dragon awakens your life force, replenishes your resources, and invites you to feel the world's support like a mother's care. "
-            "It is a time to reconnect with your roots, feel your bond with Earth, and allow yourself to receive nourishment and care on all levels.\n\n"
-            "*Wave Archetype:* The Great Mother, Source of Life.\n"
-            "*Wave Shadow:* Feelings of abandonment, difficulty accepting support, fear of new beginnings."
+            "This wave carries the energy of beginnings and deep trust in the source of life.\n\n"
+            "The Red Dragon invites you to reconnect with your inner origin — to rest, be held, and allow yourself to be supported.\n"
+            "Let go of the need to control, and return to the natural flow of receiving.\n\n"
+            "From this place, true creativity is born."
         ),
         "ru": (
-            "🐉 *Волна Красного Дракона (8 мая — 20 мая 2025)*\n"
-            "Эта волна несёт энергии рождения, начала нового цикла и возвращения к первоисточнику. "
-            "Красный Дракон пробуждает жизненную силу, наполняет ресурсами и приглашает почувствовать поддержку мира, словно заботу матери. "
-            "Это время вспомнить о своих корнях, ощутить связь с Землёй и позволить себе принять заботу и питание на всех уровнях.\n\n"
-            "*Архетип Волны:* Великая Мать, Источник Жизни.\n"
-            "*Тень Волны:* Чувство покинутости, трудности с принятием поддержки, страх начала нового."
+            "Эта волна несёт энергию начала и глубокого доверия к жизни.\n\n"
+            "Красный Дракон приглашает вернуться к своему истоку — позволить себе быть, отдохнуть, принять поддержку.\n"
+            "Отпуская контроль, ты возвращаешься к естественному потоку.\n\n"
+            "Из этого состояния рождается настоящее творчество."
         )
+    },
+    "archetype": {
+        "en": "Wave Archetype: The Cosmic Mother, the Nourisher of Life.",
+        "ru": "Архетип Волны: Космическая Мать, Питающая Жизнь."
+    },
+    "shadow": {
+        "en": "Wave Shadow: Dependency, lack of boundaries, fear of separation.",
+        "ru": "Тень Волны: Зависимость, отсутствие границ, страх покинутости."
     }
 }
 
+def get_wave_message(lang):
+    return wave_info["description"][lang]
