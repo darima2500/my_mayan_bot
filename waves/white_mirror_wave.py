@@ -46,3 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Фанатизм, жёсткость суждений, борьба с иллюзиями вовне вместо работы внутри."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
