@@ -46,3 +46,6 @@ wave_info = {
         "ru": "Тень Волны: Погружение в страсти, эмоциональные запутанности, потеря пути целостности."
     }
 }
+
+def get_wave_message(lang):
+    return wave_info["description"][lang]
