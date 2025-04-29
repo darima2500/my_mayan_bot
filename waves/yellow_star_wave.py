@@ -49,7 +49,6 @@ wave_info = {
             "*Тень Волны:* Зависимость от внешнего признания, стремление к недостижимому совершенству."
         )
     }
-}
 
 def get_wave_message(lang):
     return wave_info["description"][lang]
