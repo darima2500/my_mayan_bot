@@ -1,158 +1,158 @@
 tones_data = {
     1: {
+        "ru": {
+            "name": "Магнитный Тон",
+            "keywords": "фокус, инициация",
+            "description": "Начало волны. В этот день формируется основная тема и намерение, с которым вы входите в новый 13-дневный цикл. Важно уловить, что тянет внимание — это и есть направление движения."
+        },
         "en": {
             "name": "Magnetic Tone",
-            "keywords": "unity, purpose, initiation",
-            "description": "The Magnetic Tone marks the start of a new cycle. Today is about grounding yourself, setting your intention clearly, and opening up to receive support from life itself."
-        },
-        "ru": {
-            "name": "Магнитный тон",
-            "keywords": "единство, цель, инициирование",
-            "description": "Магнитный тон знаменует начало нового цикла. Сегодня важно укорениться, чётко определить своё намерение и открыться поддержке жизни."
+            "keywords": "focus, initiation",
+            "description": "The beginning of the wave. This day sets the main theme and intention for the new 13-day cycle. Pay attention to what draws your focus — it reveals your direction."
         }
     },
     2: {
+        "ru": {
+            "name": "Лунный Тон",
+            "keywords": "контраст, вызов",
+            "description": "Второй день проявляет внутренние и внешние противоречия, связанные с темой волны. Здесь всплывает всё, что мешает движению. Это точка, где обнажается полярность и начинается кристаллизация."
+        },
         "en": {
             "name": "Lunar Tone",
-            "keywords": "polarity, challenge, stabilization",
-            "description": "The Lunar Tone reveals the duality and challenges within you. Today’s energy helps you recognize what internal contradictions or doubts prevent you from fully accepting nourishment and support."
-        },
-        "ru": {
-            "name": "Лунный тон",
-            "keywords": "полярность, вызов, стабилизация",
-            "description": "Лунный тон проявляет двойственность и внутренние вызовы. Сегодняшняя энергия помогает увидеть, какие внутренние противоречия мешают тебе полностью принимать заботу и поддержку."
+            "keywords": "contrast, challenge",
+            "description": "This day reveals inner and outer tensions related to the wave's theme. What obstructs movement comes to the surface. It’s a point where polarity is exposed and crystallization begins."
         }
     },
     3: {
+        "ru": {
+            "name": "Электрический Тон",
+            "keywords": "активация, энергия",
+            "description": "День, когда появляется импульс к действию. Формируется способ, которым вы будете служить теме текущей волны. Энергия начинает циркулировать, возникают связи и первые отклики."
+        },
         "en": {
             "name": "Electric Tone",
-            "keywords": "dynamics, movement, expression",
-            "description": "The Electric Tone brings dynamic movement into the wave. It's a day to express your inner truth and allow creativity to flow, nurturing yourself through action."
-        },
-        "ru": {
-            "name": "Электрический тон",
-            "keywords": "динамика, движение, выражение",
-            "description": "Электрический тон привносит динамику в волну. Это день, чтобы выразить свою внутреннюю правду и позволить творчеству течь через действие."
+            "keywords": "activation, energy",
+            "description": "A day of movement and impulse. The way you serve the wave’s purpose begins to form. Energy starts circulating, connections arise, and the first responses appear."
         }
     },
     4: {
+        "ru": {
+            "name": "Самосущный Тон",
+            "keywords": "структура, определение",
+            "description": "День, когда вы начинаете осознавать форму процесса. То, что было туманным, приобретает очертания. Это этап определения границ, правил и смысла внутри текущей волны."
+        },
         "en": {
             "name": "Self-Existing Tone",
-            "keywords": "definition, form, foundation",
-            "description": "The Self-Existing Tone invites you to define the foundation you need for growth. What inner structure will allow you to feel safe and nourished on this new path?"
-        },
-        "ru": {
-            "name": "Самосущный тон",
-            "keywords": "определение, форма, основание",
-            "description": "Самосущный тон приглашает определить фундамент, необходимый для роста. Какая внутренняя структура поможет тебе чувствовать себя в безопасности и питать себя на новом пути?"
+            "keywords": "structure, definition",
+            "description": "A day of recognizing the shape of the process. What was vague starts gaining form. This stage defines boundaries, rules, and meaning within the wave."
         }
     },
     5: {
+        "ru": {
+            "name": "Обертонный Тон",
+            "keywords": "усиление, фокус силы",
+            "description": "День, в который становится ясно, где ваш ресурс. Пятая позиция — это стабилизация через укрепление намерения. Вы выбираете, на чём держится весь процесс, и находите точку влияния."
+        },
         "en": {
             "name": "Overtone Tone",
-            "keywords": "empowerment, radiance, command",
-            "description": "The Overtone Tone empowers you to shine from within. It reminds you that true strength comes not from control but from trusting the abundant flow of life."
-        },
-        "ru": {
-            "name": "Обертонный тон",
-            "keywords": "расширение силы, сияние, руководство",
-            "description": "Обертонный тон усиливает твою внутреннюю силу. Он напоминает: истинная мощь рождается не из контроля, а из доверия к изобильному потоку жизни."
+            "keywords": "empowerment, focal point",
+            "description": "A moment of identifying your source of strength. The fifth position stabilizes through the reinforcement of intention. You choose the core that holds the process together."
         }
     },
     6: {
+        "ru": {
+            "name": "Ритмический Тон",
+            "keywords": "равновесие, выравнивание",
+            "description": "Середина волны. Здесь важно навести порядок, синхронизироваться с ритмом. Это точка, где можно сбалансировать внутреннее и внешнее, сделать шаг назад и почувствовать устойчивость."
+        },
         "en": {
             "name": "Rhythmic Tone",
-            "keywords": "balance, equality, organization",
-            "description": "The Rhythmic Tone brings attention to balance. Organize your inner and outer worlds so that giving and receiving nourishment are equally honored."
-        },
-        "ru": {
-            "name": "Ритмический тон",
-            "keywords": "баланс, равенство, организация",
-            "description": "Ритмический тон обращает внимание на баланс. Организуй внутренние и внешние процессы так, чтобы забота и принятие шли рука об руку."
+            "keywords": "balance, alignment",
+            "description": "The midpoint of the wave. A day to bring order and synchronize with the rhythm. It’s a pause to align inner and outer spaces and feel grounded."
         }
     },
     7: {
+        "ru": {
+            "name": "Резонансный Тон",
+            "keywords": "кульминация, ясность",
+            "description": "Центральный день волны. То, что было запущено в начале, теперь выходит на поверхность в наиболее чистом виде. Это момент настройки: темы становятся предельно ясными, и появляется возможность отклика из глубины."
+        },
         "en": {
             "name": "Resonant Tone",
-            "keywords": "attunement, inspiration, channeling",
-            "description": "The Resonant Tone opens the doorway to inspiration. Tune into what truly nurtures your soul and allow the subtle rhythms of life to guide you."
-        },
-        "ru": {
-            "name": "Резонансный тон",
-            "keywords": "сонастройка, вдохновение, проводимость",
-            "description": "Резонансный тон открывает дверь к вдохновению. Настройся на то, что действительно питает твою душу, и позволь ритмам жизни вести тебя."
+            "keywords": "culmination, clarity",
+            "description": "The central day of the wave. What was initiated now emerges in its clearest form. A day of tuning in — themes become sharply defined, allowing for a deep inner response."
         }
     },
     8: {
+        "ru": {
+            "name": "Галактический Тон",
+            "keywords": "интеграция, напряжение баланса",
+            "description": "Это один из самых турбулентных дней в волне. Энергии стремятся к уравновешиванию, и если система нестабильна — может трясти. День требует удержания центра, сонастройки с тем, что действительно важно. Всё, что не в гармонии, может выйти наружу."
+        },
         "en": {
             "name": "Galactic Tone",
-            "keywords": "integrity, harmony, alignment",
-            "description": "The Galactic Tone asks you to align actions with your deeper values. How can you live in a way that honors your need for care, belonging, and connection?"
-        },
-        "ru": {
-            "name": "Галактический тон",
-            "keywords": "целостность, гармония, выравнивание",
-            "description": "Галактический тон приглашает согласовать действия с глубинными ценностями. Как ты можешь жить так, чтобы уважать свою потребность в заботе, принадлежности и связи?"
+            "keywords": "integration, balance under pressure",
+            "description": "One of the most turbulent days. Energies seek balance, and if the system is unstable, it may shake. It requires staying centered and aligned with what truly matters. What’s out of harmony may surface."
         }
     },
     9: {
+        "ru": {
+            "name": "Солнечный Тон",
+            "keywords": "импульс, реализация",
+            "description": "День, когда проясняется направление. Всё, что было очищено и собрано, получает импульс к воплощению. Это тон намерения и завершения одновременно — он активирует ясные шаги и требует включённости."
+        },
         "en": {
             "name": "Solar Tone",
-            "keywords": "intention, realization, illumination",
-            "description": "The Solar Tone brings illumination to your path. It’s a day to embody your purpose fully, radiating trust in life’s support and your ability to be nourished by it."
-        },
-        "ru": {
-            "name": "Солнечный тон",
-            "keywords": "намерение, реализация, озарение",
-            "description": "Солнечный тон приносит озарение на твой путь. Сегодня важно воплотить своё намерение, излучая доверие к поддержке жизни."
+            "keywords": "impulse, realization",
+            "description": "The day of clarification. What was cleansed and gathered now moves toward embodiment. This tone combines intention and completion — it activates concrete steps and calls for full engagement."
         }
     },
     10: {
+        "ru": {
+            "name": "Планетарный Тон",
+            "keywords": "проявление, результат",
+            "description": "Всё, что выстраивалось в течение волны, становится зримым. Это день, когда можно увидеть реальные формы и плоды. Хорошее время для начала — особенно того, что опирается на уже пройденное."
+        },
         "en": {
             "name": "Planetary Tone",
-            "keywords": "manifestation, perfection, production",
-            "description": "The Planetary Tone brings opportunities for concrete manifestation. Focus on realizing what nurtures you physically, emotionally, and spiritually."
-        },
-        "ru": {
-            "name": "Планетарный тон",
-            "keywords": "манифестация, совершенство, проявление",
-            "description": "Планетарный тон даёт возможность для реального воплощения. Сфокусируйся на том, что питает тебя физически, эмоционально и духовно."
+            "keywords": "manifestation, result",
+            "description": "What was built throughout the wave becomes visible. A time to see real outcomes. Great for beginnings — especially those rooted in what’s already been established."
         }
     },
     11: {
+        "ru": {
+            "name": "Спектральный Тон",
+            "keywords": "очищение, отпускание",
+            "description": "Это не время для начинаний. Этот день создан для освобождения от лишнего. Если появляются 'новые' люди или события — они приходят, чтобы завершить, а не начать. Энергия 11-го тона — прощание, прояснение и порядок. Всё ненужное отходит."
+        },
         "en": {
             "name": "Spectral Tone",
-            "keywords": "liberation, release, freedom",
-            "description": "The Spectral Tone invites you to release attachments that prevent you from feeling truly supported. Freedom comes when you allow life to nourish you naturally."
-        },
-        "ru": {
-            "name": "Спектральный тон",
-            "keywords": "освобождение, отпускание, свобода",
-            "description": "Спектральный тон приглашает освободиться от привязанностей, мешающих ощущать поддержку. Свобода приходит, когда ты позволишь жизни естественно питать тебя."
+            "keywords": "release, purification",
+            "description": "Not a day for beginnings. This tone is about letting go. If 'new' people or events appear, they come to complete, not initiate. It’s a day of farewell, refinement, and clarity. What’s unnecessary falls away."
         }
     },
     12: {
+        "ru": {
+            "name": "Кристаллический Тон",
+            "keywords": "объединение, совершенство",
+            "description": "Число 12 — символ полноты и совершенства во многих традициях. Это день объединения всего прожитого. Здесь появляется ясность о сути происходящего, и становится возможным взаимодействие с другими из места целостности. Подходит и для новых шагов, особенно совместных."
+        },
         "en": {
             "name": "Crystal Tone",
-            "keywords": "cooperation, dedication, universalization",
-            "description": "The Crystal Tone calls for community and shared support. Today is about recognizing the web of connections that sustains and nurtures your being."
-        },
-        "ru": {
-            "name": "Кристаллический тон",
-            "keywords": "кооперация, преданность, универсализация",
-            "description": "Кристаллический тон призывает к единству и взаимной поддержке. Сегодня день осознания связей, питающих твою жизнь."
+            "keywords": "unification, perfection",
+            "description": "The number 12 symbolizes completeness in many traditions. A day to integrate all that was lived. Clarity arises, and connection with others becomes possible from a space of wholeness. Good for cooperative actions."
         }
     },
     13: {
+        "ru": {
+            "name": "Космический Тон",
+            "keywords": "завершение, переход",
+            "description": "Последний день волны. Завершается цикл, но не как конец, а как выход за пределы. Это момент отпускания контроля и открытия следующей спирали — с новым уровнем восприятия. Хороший момент для перехода в следующее."
+        },
         "en": {
             "name": "Cosmic Tone",
-            "keywords": "presence, transcendence, endurance",
-            "description": "The Cosmic Tone completes the wave. It invites you to rest deeply in the presence of life itself, trusting the infinite cycles of birth, nourishment, and renewal."
-        },
-        "ru": {
-            "name": "Космический тон",
-            "keywords": "присутствие, трансценденция, выносливость",
-            "description": "Космический тон завершает волну. Он приглашает глубоко отдохнуть в присутствии самой жизни, доверяя бесконечным циклам рождения, питания и обновления."
+            "keywords": "completion, transition",
+            "description": "The final day of the wave. A cycle ends — not as closure, but as a leap beyond. A moment to release control and open to the next spiral. A potent time for entering something new."
         }
     }
 }
