@@ -74,39 +74,47 @@ def send_today_wave(message):
     kin_number = get_current_kin()
     tone_number = get_current_tone(kin_number)
 
-    # получаем name, keywords и description из словаря
+    # Тон: блок с описанием
     tone_data = tones_data[tone_number][lang]
     tone_name = tone_data["name"]
     tone_keywords = tone_data["keywords"]
     tone_description = tone_data["description"]
 
-    # собираем красивое сообщение по тону
     tone_block = (
         f"🌟 *{tone_name}* (Tone {tone_number})\n"
-        f"_{tone_keywords}_\n\n"
-        f"{tone_description}"
+        f"*Keywords:* {tone_keywords}" if lang == "en" else f"*Ключевые слова:* {tone_keywords}"
+        + "\n\n" + tone_description
     )
 
     found_wave = find_wave_by_kin(kin_number)
 
     if found_wave:
-        wave_message = found_wave["get_message_func"](lang)
-        if wave_message:
-            full_message = f"{tone_block}\n\n{wave_message}"
-            bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
-        else:
-            bot.send_message(
-                message.chat.id,
-                "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
-            )
+        wave_info = found_wave["info"][lang]  # предполагаем, что внутри found_wave теперь есть поле info с полными данными
+
+        # Темы: 3–4 ключевых + тень
+        all_themes = wave_info["core_themes"]
+        shadow = next((t for t in all_themes if "Shadow" in t or "Тень" in t), None)
+        essential_themes = [t for t in all_themes if t != shadow][:3]
+        if shadow:
+            essential_themes.append(shadow)
+        themes_block = "\n".join(f"• {t}" for t in essential_themes)
+
+        # Сборка основного текста волны
+        wave_block = (
+            f"\n\n*{wave_info['name']}*\n"
+            f"{wave_info['period']}\n\n"
+            f"*Themes:*\n{themes_block}\n\n"
+            f"*Essence:*\n{wave_info['description']}\n\n"
+            f"*Archetype:* {wave_info['archetype']}"
+        )
+
+        full_message = f"{tone_block}\n{wave_block}"
+        bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
     else:
         bot.send_message(
             message.chat.id,
             "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
         )
-
-
-
 
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
 def about_project(message):
