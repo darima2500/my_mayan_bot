@@ -49,17 +49,4 @@ wave_info = {
 
 
 def get_wave_message(lang):
-    name = wave_info["name"][lang]
-    start_date = wave_info.get("start_date", "")
-    end_date = wave_info.get("end_date", "")
-    period = f"{start_date} — {end_date}" if start_date and end_date else ""
-    core_themes = "\n".join(f"• {theme}" for theme in wave_info["core_themes"][lang])
-    description = wave_info["description"][lang]
-    
-    full_message = (
-        f"*{name}* ({period})\n\n"
-        f"*Themes:*\n{core_themes}\n\n"
-        f"{description}"
-    )
-    return full_message
-
+    return wave_info[lang]
