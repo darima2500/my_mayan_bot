@@ -104,7 +104,6 @@ def send_today_wave(message):
             message.chat.id,
             "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
         )
-        )
 
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
 def about_project(message):
