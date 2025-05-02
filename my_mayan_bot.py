@@ -244,19 +244,17 @@ def ask_birthdate(message):
 def handle_birthdate(message):
     lang = get_language(message.chat.id)
     try:
-        # 🔍 Логируем всё, что приходит от пользователя
         print("🧪 Получено сообщение:", repr(message.text))
         print("📎 Тип данных:", type(message.text))
         print("✂️ После strip():", repr(message.text.strip()))
 
-        # Пытаемся распарсить дату
         birth_date = datetime.strptime(message.text.strip(), "%d.%m.%Y").date()
         start_date = date(2025, 5, 8)
         delta = (birth_date - start_date).days
         kin_number = (delta % 260) + 1
         tone_number = (kin_number - 1) % 13 + 1
 
-                wave = find_wave_by_kin(kin_number)
+        wave = find_wave_by_kin(kin_number)
         wave_name = wave["name"] if wave else "Unknown"
 
         archetype_number = ((kin_number - 1) % 20) + 1
@@ -281,9 +279,7 @@ def handle_birthdate(message):
 
         bot.send_message(message.chat.id, response, parse_mode="Markdown")
 
-
     except Exception as e:
-        # Логируем и отправляем сообщение об ошибке
         print("❌ Ошибка парсинга даты:", e)
         error_text = (
             "Неверный формат даты. Попробуйте снова: ДД.ММ.ГГГГ"
