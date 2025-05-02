@@ -42,4 +42,5 @@ wave_info = {
 
 
 def get_wave_message(lang):
-    return wave_info["description"][lang]
+    return wave_info[lang]
+
