@@ -11,23 +11,16 @@ wave_info = {
             "Harmony",
             "Inner Light",
             "Beauty as a spiritual expression",
-            "Connection to cosmic cycles",
-            "Venusian energies of maturity and love",
-            "Shadow: Dependence on external validation"
         ],
         "ru": [
             "Искусство",
             "Гармония",
-            "Внутренний Свет",
             "Красота как духовное выражение",
-            "Связь с космическими циклами",
-            "Венерианские энергии зрелости и любви",
-            "Тень: Зависимость от внешнего признания"
-        ]
+            ]
     },
     "description": {
         "en": (
-            "🌟 *Yellow Star Wave (April 25 — May 7, 2025)*\n"
+            "🌟 *Yellow Star Wave *\n"
             "This wave carries the energies of art, harmony, and inner radiance. "
             "It is connected to the planet Venus — the guide of beauty, maturity, creativity, and love. "
             "The wave invites you to explore your maturity, sense the natural beauty of life in every moment, "
@@ -36,7 +29,7 @@ wave_info = {
             "*Wave Shadow:* Dependence on external validation, striving for unattainable perfection."
         ),
         "ru": (
-            "🌟 *Волна Жёлтой Звезды (25 апреля — 7 мая 2025)*\n"
+            "🌟 *Волна Жёлтой Звезды *\n"
             "Эта волна несёт энергии искусства, гармонии и внутреннего сияния. "
             "Она связана с энергией планеты Венеры — покровительницы красоты, зрелости, творчества и любви. "
             "Волна приглашает исследовать свою зрелость, чувствовать естественную красоту жизни в каждом моменте "
@@ -49,4 +42,4 @@ wave_info = {
 
 
 def get_wave_message(lang):
-    return wave_info[lang]
+    return wave_info["description"][lang]
