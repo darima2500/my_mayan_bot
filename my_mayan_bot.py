@@ -240,20 +240,21 @@ def ask_birthdate(message):
     text = "Введите дату рождения в формате ДД.ММ.ГГГГ (например, 21.06.1991):" if lang == "ru" else "Enter your birth date in format DD.MM.YYYY (e.g. 21.06.1991):"
     bot.send_message(message.chat.id, text)
 
-# --- Обработчик ответа с датой рождения
 @bot.message_handler(func=lambda message: user_states.get(message.chat.id) == "awaiting_birthdate")
 def handle_birthdate(message):
     lang = get_language(message.chat.id)
     try:
+        # 🔍 Логируем всё, что приходит от пользователя
         print("🧪 Получено сообщение:", repr(message.text))
         print("📎 Тип данных:", type(message.text))
         print("✂️ После strip():", repr(message.text.strip()))
+
+        # Пытаемся распарсить дату
         birth_date = datetime.strptime(message.text.strip(), "%d.%m.%Y").date()
         start_date = date(2025, 5, 8)
         delta = (birth_date - start_date).days
         kin_number = (delta % 260) + 1
         tone_number = (kin_number - 1) % 13 + 1
-
 
         wave = find_wave_by_kin(kin_number)
         wave_name = wave["name"] if wave else "Unknown"
@@ -276,7 +277,13 @@ def handle_birthdate(message):
         bot.send_message(message.chat.id, response, parse_mode="Markdown")
 
     except Exception as e:
-        error_text = "Неверный формат даты. Попробуйте снова: ДД.ММ.ГГГГ" if lang == "ru" else "Invalid date format. Please try again: DD.MM.YYYY"
+        # Логируем и отправляем сообщение об ошибке
+        print("❌ Ошибка парсинга даты:", e)
+        error_text = (
+            "Неверный формат даты. Попробуйте снова: ДД.ММ.ГГГГ"
+            if lang == "ru"
+            else "Invalid date format. Please try again: DD.MM.YYYY"
+        )
         bot.send_message(message.chat.id, error_text)
 
     finally:
