@@ -11,10 +11,12 @@ from tones.tones_data import tones_data
 
 
 def get_current_kin():
-    start_date = date(2025, 5, 2)  # ← Сегодняшний день как Кин 255
+    # Мы знаем, что 2 мая 2025 = Кин 255 (временный старт для теста)
+    start_date = date(2025, 5, 2)
     today = date.today()
     delta_days = (today - start_date).days
     return (255 + delta_days) % 260 or 260
+
 
     
 def find_wave_by_kin(kin_number):
