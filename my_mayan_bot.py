@@ -100,23 +100,19 @@ def send_today_wave(message):
     )
     bot.send_message(message.chat.id, tone_block, parse_mode="Markdown")
 
-    found_wave = find_wave_by_kin(kin_number)
+
+   found_wave = find_wave_by_kin(kin_number)
 
     if found_wave:
-        wave_message = found_wave["get_message_func"](lang)
-        if wave_message:
-            full_message = f"{tone_block}\n\n{wave_message}"
-            bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
-        else:
-            bot.send_message(
-                message.chat.id,
-                "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
-            )
+    wave_message = found_wave["get_message_func"](lang)
+    if wave_message:
+        full_message = f"{tone_block}\n\n{wave_message}"
+        bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
     else:
-        bot.send_message(
-            message.chat.id,
-            "Информация о текущей волне недоступна." if lang == "ru" else "Wave information is not available."
-        )
+        bot.send_message(message.chat.id, "⚠️ Wave message is empty.")
+    else:
+    bot.send_message(message.chat.id, "❌ Wave not found.")
+
 
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
 def about_project(message):
