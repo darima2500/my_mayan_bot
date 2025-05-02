@@ -78,39 +78,27 @@ def send_today_wave(message):
     kin_number = get_current_kin()
     tone_number = get_current_tone(kin_number)
 
-    # отладка:
-    bot.send_message(message.chat.id, f"KIN: {kin_number}, TONE: {tone_number}")
-
-    # пока отключим всё остальное
-    # tone_data = tones_data[tone_number][lang]
-    # ...
-
-
-    # получаем name, keywords и description из словаря
     tone_data = tones_data[tone_number][lang]
     tone_name = tone_data["name"]
     tone_keywords = tone_data["keywords"]
     tone_description = tone_data["description"]
 
-    # собираем красивое сообщение по тону
     tone_block = (
         f"🌟 *{tone_name}* (Tone {tone_number})\n"
         f"_{tone_keywords}_\n\n"
         f"{tone_description}"
     )
-    bot.send_message(message.chat.id, tone_block, parse_mode="Markdown")
 
-
-   found_wave = find_wave_by_kin(kin_number)
-if found_wave:
-    wave_message = found_wave["get_message_func"](lang)
-    if wave_message:
-        full_message = f"{tone_block}\n\n{wave_message}"
-        bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
+    found_wave = find_wave_by_kin(kin_number)
+    if found_wave:
+        wave_message = found_wave["get_message_func"](lang)
+        if wave_message:
+            full_message = f"{tone_block}\n\n{wave_message}"
+            bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
+        else:
+            bot.send_message(message.chat.id, "⚠️ Wave message is empty.")
     else:
-        bot.send_message(message.chat.id, "⚠️ Wave message is empty.")
-else:
-    bot.send_message(message.chat.id, "❌ Wave not found.")
+        bot.send_message(message.chat.id, "❌ Wave not found.")
 
 
 
