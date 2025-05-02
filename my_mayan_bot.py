@@ -245,7 +245,9 @@ def ask_birthdate(message):
 def handle_birthdate(message):
     lang = get_language(message.chat.id)
     try:
-        print("🧪 Получено сообщение:", message.text)
+        print("🧪 Получено сообщение:", repr(message.text))
+        print("📎 Тип данных:", type(message.text))
+        print("✂️ После strip():", repr(message.text.strip()))
         birth_date = datetime.strptime(message.text.strip(), "%d.%m.%Y").date()
         start_date = date(2025, 5, 8)
         delta = (birth_date - start_date).days
