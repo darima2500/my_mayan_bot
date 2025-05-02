@@ -38,8 +38,8 @@ bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 
 menu_buttons = {
-    "en": ["📅 Today's Wave", "🎴 Reflect", "📖 About the Project", "✨ About the Calendar"],
-    "ru": ["📅 Текущая Волна", "🎴 Рефлексия", "📖 О проекте", "✨ О Календаре"]
+    "en": ["📅 Today's Wave", "🔢 Calculate Kin", "🎴 Reflect", "📖 About the Project", "✨ About the Calendar"],
+    "ru": ["📅 Текущая Волна", "🔢 Рассчитать Кин", "🎴 Рефлексия", "📖 О проекте", "✨ О Календаре"]
 }
 
 # Обработчик команды /start
