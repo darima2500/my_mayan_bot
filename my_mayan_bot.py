@@ -73,7 +73,9 @@ bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "
 def send_today_wave(message):
     lang = get_language(message.chat.id)
     kin_number = get_current_kin()
+    print("KIN:", kin_number)  # ← ВРЕМЕННО!
     tone_number = get_current_tone(kin_number)
+
 
     # получаем name, keywords и description из словаря
     tone_data = tones_data[tone_number][lang]
