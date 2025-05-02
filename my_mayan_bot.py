@@ -89,23 +89,22 @@ def send_today_wave(message):
         f"{tone_description}"
     )
 
-found_wave = find_wave_by_kin(kin_number)
-if found_wave:
-    try:
-        wave_message = found_wave["get_message_func"](lang)
-    except Exception as e:
-        wave_message = None
-        bot.send_message(message.chat.id, f"⚠️ Ошибка в тексте волны:\n{e}")
-        return
+    found_wave = find_wave_by_kin(kin_number)
+    if found_wave:
+        try:
+            wave_message = found_wave["get_message_func"](lang)
+        except Exception as e:
+            wave_message = None
+            bot.send_message(message.chat.id, f"⚠️ Ошибка в тексте волны:\n{e}")
+            return
 
-    if wave_message:
-        full_message = f"{tone_block}\n\n{wave_message}"
-        bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
+        if wave_message:
+            full_message = f"{tone_block}\n\n{wave_message}"
+            bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
+        else:
+            bot.send_message(message.chat.id, "⚠️ Wave message is empty.")
     else:
-        bot.send_message(message.chat.id, "⚠️ Wave message is empty.")
-else:
-    bot.send_message(message.chat.id, "❌ Wave not found.")
-
+        bot.send_message(message.chat.id, "❌ Wave not found.")
 
 
 
