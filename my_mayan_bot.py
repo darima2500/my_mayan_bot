@@ -8,6 +8,9 @@ from waves_schedule import waves_schedule
 from language_store import get_language, set_language
 from dotenv import load_dotenv
 from tones.tones_data import tones_data
+from archetypes.archetypes_data import archetypes_data
+
+
 
 
 def get_current_kin():
@@ -230,14 +233,6 @@ def index():
 user_states = {}
 
 # --- Запрос даты рождения
-@bot.message_handler(func=lambda message: message.text in ["🔢 Рассчитать Кин", "🔢 Calculate Kin"])
-def ask_birthdate(message):
-    lang = get_language(message.chat.id)
-    user_states[message.chat.id] = "awaiting_birthdate"
-    text = "Введите дату рождения в формате ДД.ММ.ГГГГ (например, 21.06.1991):" if lang == "ru" else "Enter your birth date in format DD.MM.YYYY (e.g. 21.06.1991):"
-    bot.send_message(message.chat.id, text)
-
-# --- Обработка ответа с датой
 @bot.message_handler(func=lambda message: user_states.get(message.chat.id) == "awaiting_birthdate")
 def handle_birthdate(message):
     lang = get_language(message.chat.id)
@@ -248,19 +243,32 @@ def handle_birthdate(message):
         kin_number = (delta % 260) + 1
         tone_number = (kin_number - 1) % 13 + 1
 
-        # Поиск волны
         wave = find_wave_by_kin(kin_number)
         wave_name = wave["name"] if wave else "Unknown"
 
+        # → ВСТАВЛЯЕМ ЗДЕСЬ расчет архетипа
+        archetype_number = ((kin_number - 1) % 20) + 1
+        archetype = archetypes_data[archetype_number][lang]
+
         response = (
             f"🔢 *Кин*: {kin_number}\n"
+            f"💠 *Архетип*: {archetype['name']} — {', '.join(archetype['keywords'])}\n"
             f"🎵 *Тон*: {tone_number}\n"
             f"🌊 *Волна*: {wave_name}"
         ) if lang == "ru" else (
             f"🔢 *Kin*: {kin_number}\n"
+            f"💠 *Archetype*: {archetype['name']} — {', '.join(archetype['keywords'])}\n"
             f"🎵 *Tone*: {tone_number}\n"
             f"🌊 *Wave*: {wave_name}"
         )
+
+        bot.send_message(message.chat.id, response, parse_mode="Markdown")
+    except Exception as e:
+        error_text = "Неверный формат даты. Попробуйте снова: ДД.ММ.ГГГГ" if lang == "ru" else "Invalid date format. Please try again: DD.MM.YYYY"
+        bot.send_message(message.chat.id, error_text)
+    finally:
+        user_states.pop(message.chat.id, None)
+
 
         bot.send_message(message.chat.id, response, parse_mode="Markdown")
     except Exception as e:
