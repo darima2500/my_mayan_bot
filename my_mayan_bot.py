@@ -269,13 +269,6 @@ def handle_birthdate(message):
     finally:
         user_states.pop(message.chat.id, None)
 
-
-        bot.send_message(message.chat.id, response, parse_mode="Markdown")
-    except Exception as e:
-        error_text = "Неверный формат даты. Попробуйте снова: ДД.ММ.ГГГГ" if lang == "ru" else "Invalid date format. Please try again: DD.MM.YYYY"
-        bot.send_message(message.chat.id, error_text)
-    finally:
-        user_states.pop(message.chat.id, None)
         
 # --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
