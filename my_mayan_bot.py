@@ -74,9 +74,16 @@ def set_user_language(message):
 
 @bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "📅 Текущая Волна"])
 def send_today_wave(message):
-    print("📅 КНОПКА НАЖАТА")
-    bot.send_message(message.chat.id, "Кнопка работает!")  # временно
-    return  # временно отключим всё остальное
+    lang = get_language(message.chat.id)
+    kin_number = get_current_kin()
+    tone_number = get_current_tone(kin_number)
+
+    # отладка:
+    bot.send_message(message.chat.id, f"KIN: {kin_number}, TONE: {tone_number}")
+
+    # пока отключим всё остальное
+    # tone_data = tones_data[tone_number][lang]
+    # ...
 
 
     # получаем name, keywords и description из словаря
