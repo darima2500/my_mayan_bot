@@ -193,6 +193,8 @@ ALLOWED_TEXTS = [
     "/start",
     "📅 Today's Wave",
     "📅 Текущая Волна",
+    "🔢 Calculate Kin"  # в en
+    "🔢 Рассчитать Кин"  # в ru
     "🎴 Reflect",
     "🎴 Рефлексия",
     "📖 About the Project",
@@ -224,6 +226,49 @@ def webhook():
 def index():
     return "Hello, this is Mayan Bot!"
 
+# --- Хранилище временного состояния пользователей
+user_states = {}
+
+# --- Запрос даты рождения
+@bot.message_handler(func=lambda message: message.text in ["🔢 Рассчитать Кин", "🔢 Calculate Kin"])
+def ask_birthdate(message):
+    lang = get_language(message.chat.id)
+    user_states[message.chat.id] = "awaiting_birthdate"
+    text = "Введите дату рождения в формате ДД.ММ.ГГГГ (например, 21.06.1991):" if lang == "ru" else "Enter your birth date in format DD.MM.YYYY (e.g. 21.06.1991):"
+    bot.send_message(message.chat.id, text)
+
+# --- Обработка ответа с датой
+@bot.message_handler(func=lambda message: user_states.get(message.chat.id) == "awaiting_birthdate")
+def handle_birthdate(message):
+    lang = get_language(message.chat.id)
+    try:
+        birth_date = datetime.strptime(message.text.strip(), "%d.%m.%Y").date()
+        start_date = date(2025, 5, 8)
+        delta = (birth_date - start_date).days
+        kin_number = (delta % 260) + 1
+        tone_number = (kin_number - 1) % 13 + 1
+
+        # Поиск волны
+        wave = find_wave_by_kin(kin_number)
+        wave_name = wave["name"] if wave else "Unknown"
+
+        response = (
+            f"🔢 *Кин*: {kin_number}\n"
+            f"🎵 *Тон*: {tone_number}\n"
+            f"🌊 *Волна*: {wave_name}"
+        ) if lang == "ru" else (
+            f"🔢 *Kin*: {kin_number}\n"
+            f"🎵 *Tone*: {tone_number}\n"
+            f"🌊 *Wave*: {wave_name}"
+        )
+
+        bot.send_message(message.chat.id, response, parse_mode="Markdown")
+    except Exception as e:
+        error_text = "Неверный формат даты. Попробуйте снова: ДД.ММ.ГГГГ" if lang == "ru" else "Invalid date format. Please try again: DD.MM.YYYY"
+        bot.send_message(message.chat.id, error_text)
+    finally:
+        user_states.pop(message.chat.id, None)
+        
 # --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
     bot.remove_webhook()
