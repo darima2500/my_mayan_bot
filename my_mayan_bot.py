@@ -245,11 +245,13 @@ def ask_birthdate(message):
 def handle_birthdate(message):
     lang = get_language(message.chat.id)
     try:
+        print("🧪 Получено сообщение:", message.text)
         birth_date = datetime.strptime(message.text.strip(), "%d.%m.%Y").date()
         start_date = date(2025, 5, 8)
         delta = (birth_date - start_date).days
         kin_number = (delta % 260) + 1
         tone_number = (kin_number - 1) % 13 + 1
+
 
         wave = find_wave_by_kin(kin_number)
         wave_name = wave["name"] if wave else "Unknown"
