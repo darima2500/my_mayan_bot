@@ -256,11 +256,16 @@ def handle_birthdate(message):
         kin_number = (delta % 260) + 1
         tone_number = (kin_number - 1) % 13 + 1
 
-        wave = find_wave_by_kin(kin_number)
+                wave = find_wave_by_kin(kin_number)
         wave_name = wave["name"] if wave else "Unknown"
 
         archetype_number = ((kin_number - 1) % 20) + 1
-        archetype = archetypes_data[archetype_number][lang]
+        archetype_entry = archetypes_data.get(archetype_number, {})
+        archetype = archetype_entry.get(lang) or archetype_entry.get("ru") or {
+            "name": "Неизвестно",
+            "keywords": [],
+            "description": "Описание архетипа недоступно."
+        }
 
         response = (
             f"🔢 *Кин*: {kin_number}\n"
@@ -275,6 +280,7 @@ def handle_birthdate(message):
         )
 
         bot.send_message(message.chat.id, response, parse_mode="Markdown")
+
 
     except Exception as e:
         # Логируем и отправляем сообщение об ошибке
