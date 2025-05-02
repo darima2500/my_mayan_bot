@@ -172,23 +172,23 @@ def about_calendar(message):
         "Цолькин — это священный календарь майя из 260 дней, отражающий внутреннюю архитектуру самого творения.\n\n"
         "Он сплетает 20 архетипов — универсальных сил сознания — и 13 тонов — этапов движения и роста. "
         "Каждый день представляет собой уникальную встречу архетипа и тона, рождая живую вибрацию, которая зеркалит разворачивание жизни.\n\n"
-        "Цолькин — это не просто способ отслеживать время. "
+        "В нашем проекте используется система подсчёта по доктору Карлу Кальману, которая фокусируется на эволюции сознания. Это инструмент настройки с естественными циклами. \n\n"
+        "Цолькин — не просто способ отслеживать время. "
         "Это космическая карта твоего внутреннего пути, показывающая, как циклы рождения, роста, трансформации и обновления движутся через тебя, "
         "соединяя тебя с ритмами Земли, звёзд и самого источника жизни.\n\n"
-        "Сонастраиваясь с энергиями Цолькина, ты можешь глубже вспомнить свою истинную природу, "
-        "углубить присутствие в настоящем моменте и идти по своему пути с большей ясностью и лёгкостью."
+        "Сонастраиваясь с этими энергиями, ты можешь глубже вспомнить свою природу и двигаться по жизни с большей ясностью, свободой и глубиной."
     ) if lang == "ru" else (
         "Tzolkin is the sacred Mayan calendar of 260 days, reflecting the inner architecture of creation itself.\n\n"
-        "It weaves together 20 archetypes — universal forces of consciousness — and 13 tones — stages of movement and growth. "
-        "Each day is a unique meeting point between an archetype and a tone, creating a living vibration that mirrors the unfolding of life.\n\n"
-        "Tzolkin is not just a way to track time — it is a cosmic map of your inner journey. "
-        "It shows how cycles of birth, growth, transformation, and renewal move through your being, "
-        "connecting you with the rhythms of the Earth, the stars, and the source of life itself.\n\n"
-        "Through attunement to the Tzolkin, you can remember your true nature, deepen your awareness of the present moment, "
-        "and walk your path with greater clarity and grace."
+        "It weaves together 20 archetypes — universal forces of consciousness — and 13 tones — stages of movement and evolution. "
+        "Each day is a unique convergence of archetype and tone, creating a living vibration that mirrors the unfolding of life.\n\n"
+        "Our project follows the approach of Dr. Carl Calleman, focusing on the evolution of consciousness. "
+        "It is a tool for tuning into natural cycles.\n\n"
+        "Tzolkin is not just a way to track time. It is a cosmic map of your inner journey, showing how the cycles of birth, growth, transformation, and renewal move through you, "
+        "aligning you with the rhythms of Earth, the stars, and the Source itself.\n\n"
+        "By attuning to these energies, you can remember your true nature and move through life with more clarity, freedom, and depth."
     )
     bot.send_message(message.chat.id, text)
-
+    
 ALLOWED_TEXTS = [
     "/start",
     "📅 Today's Wave",
