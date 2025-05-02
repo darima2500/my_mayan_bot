@@ -10,11 +10,12 @@ from dotenv import load_dotenv
 from tones.tones_data import tones_data
 
 
-def get_current_kin(start_date=datetime(2025, 5, 8)):
-    today = datetime.now()
+def get_current_kin():
+    start_date = date(2025, 5, 2)  # ← Сегодняшний день как Кин 255
+    today = date.today()
     delta_days = (today - start_date).days
-    kin_number = (delta_days % 260) + 1
-    return kin_number
+    return (255 + delta_days) % 260 or 260
+
     
 def find_wave_by_kin(kin_number):
     for wave in waves_schedule:
