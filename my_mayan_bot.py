@@ -71,7 +71,7 @@ def set_user_language(message):
     welcome_text = "Welcome! Choose an option below:" if lang == "en" else "Добро пожаловать! Выбери действие ниже:"
     bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
 
-bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "📅 Текущая Волна"])
+@bot.message_handler(func=lambda message: message.text in ["📅 Today's Wave", "📅 Текущая Волна"])
 def send_today_wave(message):
     lang = get_language(message.chat.id)
     kin_number = get_current_kin()
