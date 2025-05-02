@@ -102,16 +102,16 @@ def send_today_wave(message):
 
 
    found_wave = find_wave_by_kin(kin_number)
-
-    if found_wave:
+if found_wave:
     wave_message = found_wave["get_message_func"](lang)
     if wave_message:
         full_message = f"{tone_block}\n\n{wave_message}"
         bot.send_message(message.chat.id, full_message, parse_mode="Markdown")
     else:
         bot.send_message(message.chat.id, "⚠️ Wave message is empty.")
-    else:
+else:
     bot.send_message(message.chat.id, "❌ Wave not found.")
+
 
 
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
