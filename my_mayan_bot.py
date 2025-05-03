@@ -103,14 +103,19 @@ def send_today_wave(message):
 
     found_wave = find_wave_by_kin(kin_number)
     if found_wave:
-        # 🔹 Отправляем картинку волны
-        wave_image_path = f"wave_images/wave_{found_wave['number']}.jpg"
+        # Получаем номер волны по порядку в календаре
+        wave_index = waves_schedule.index(found_wave)
+        wave_number = wave_index + 1
+        wave_image_path = f"wave_images/wave_{wave_number}.jpg"
+
+        # Пробуем отправить картинку волны
         try:
             with open(wave_image_path, 'rb') as photo:
                 bot.send_photo(message.chat.id, photo)
         except FileNotFoundError:
             bot.send_message(message.chat.id, "📷 Картинка для этой волны пока не добавлена.")
 
+        # Получаем и отправляем текст волны
         try:
             wave_message = found_wave["get_message_func"](lang)
         except Exception as e:
@@ -125,7 +130,6 @@ def send_today_wave(message):
             bot.send_message(message.chat.id, "⚠️ Wave message is empty.")
     else:
         bot.send_message(message.chat.id, "❌ Wave not found.")
-
 
 
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
