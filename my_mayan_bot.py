@@ -246,6 +246,7 @@ def handle_birthdate(message):
         archetype_entry = archetypes_data.get(archetype_number, {})
         print("🌐 Язык пользователя:", lang)
         print("🔍 Доступные ключи архетипа:", list(archetype_entry.keys()))
+        
         archetype = archetype_entry.get(lang) or archetype_entry.get("ru") or {
             "name": "Неизвестно",
             "keywords": [],
@@ -253,22 +254,21 @@ def handle_birthdate(message):
         }
 
         if lang == "ru":
-    response = (
-        f"🔢 *Кин*: {kin_number}\n"
-        f"💠 *Архетип*: *{archetype['name']}* — _{', '.join(archetype['keywords'])}_\n\n"
-        f"{archetype['description']}\n\n"
-        f"🎵 *Тон*: {tone_number}\n"
-        f"🌊 *Волна*: {wave_name}"
-    )
-else:
-    response = (
-        f"🔢 *Kin*: {kin_number}\n"
-        f"💠 *Archetype*: *{archetype['name']}* — _{', '.join(archetype['keywords'])}_\n\n"
-        f"{archetype['description']}\n\n"
-        f"🎵 *Tone*: {tone_number}\n"
-        f"🌊 *Wave*: {wave_name}"
-    )
-
+            response = (
+                f"🔢 *Кин*: {kin_number}\n"
+                f"💠 *Архетип*: *{archetype['name']}* — _{', '.join(archetype['keywords'])}_\n\n"
+                f"{archetype['description']}\n\n"
+                f"🎵 *Тон*: {tone_number}\n"
+                f"🌊 *Волна*: {wave_name}"
+            )
+        else:
+            response = (
+                f"🔢 *Kin*: {kin_number}\n"
+                f"💠 *Archetype*: *{archetype['name']}* — _{', '.join(archetype['keywords'])}_\n\n"
+                f"{archetype['description']}\n\n"
+                f"🎵 *Tone*: {tone_number}\n"
+                f"🌊 *Wave*: {wave_name}"
+            )
 
         bot.send_message(message.chat.id, response, parse_mode="Markdown")
 
