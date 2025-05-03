@@ -56,7 +56,7 @@ def send_welcome(message):
 
     welcome_text = (
         "🌿 Welcome to the flow of Mayan time.\n\n"
-        "Добро пожаловать в пространство майянских энергий! 🌿\n\n"
+        "🌿 Добро пожаловать в пространство майянских энергий! \n\n"
         "👇 Choose your language / Выбери язык:"
     )
 
