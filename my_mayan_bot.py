@@ -106,7 +106,7 @@ def send_today_wave(message):
         # Получаем номер волны по порядку в календаре
         wave_index = waves_schedule.index(found_wave)
         wave_number = wave_index + 1
-        wave_image_path = f"wave_images/wave_{wave_number}.jpg"
+        wave_image_path = f"wave_images/wave_{wave_number}.png"
 
         # Пробуем отправить картинку волны
         try:
