@@ -259,7 +259,7 @@ def handle_birthdate(message):
             f"🌊 *Волна*: {wave_name}"
         ) if lang == "ru" else (
             f"🔢 *Kin*: {kin_number}\n"
-            f"💠 *Archetype*: {archetype['name']} — {', '.join(archetype['keywords'])}\n"
+            f"💠 *Архетип*: {archetype['name']} — {', '.join(archetype['keywords'])}\n\n{archetype['description']}"
             f"🎵 *Tone*: {tone_number}\n"
             f"🌊 *Wave*: {wave_name}"
         )
