@@ -260,7 +260,7 @@ def handle_birthdate(message):
         f"🎵 *Тон*: {tone_number}\n"
         f"🌊 *Волна*: {wave_name}"
     )
-        else:
+else:
     response = (
         f"🔢 *Kin*: {kin_number}\n"
         f"💠 *Archetype*: *{archetype['name']}* — _{', '.join(archetype['keywords'])}_\n\n"
