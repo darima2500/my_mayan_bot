@@ -53,13 +53,22 @@ def send_welcome(message):
         KeyboardButton("🇬🇧 English"),
         KeyboardButton("🇷🇺 Русский")
     )
-    bot.send_message(
-        message.chat.id,
+
+    welcome_text = (
         "🌿 Welcome to the flow of Mayan time.\n\n"
         "Добро пожаловать в пространство майянских энергий! 🌿\n\n"
-        "👇 Choose your language / Выбери язык:",
-        reply_markup=lang_keyboard
+        "👇 Choose your language / Выбери язык:"
     )
+
+    with open('welcome_banner.png', 'rb') as photo:
+        bot.send_photo(
+            message.chat.id,
+            photo,
+            caption=welcome_text,
+            parse_mode="Markdown",
+            reply_markup=lang_keyboard
+        )
+
 
 # Обработчик выбора языка
 @bot.message_handler(func=lambda message: message.text in ["🇬🇧 English", "🇷🇺 Русский"])
