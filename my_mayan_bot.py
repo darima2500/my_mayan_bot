@@ -244,6 +244,8 @@ def handle_birthdate(message):
 
         archetype_number = ((kin_number - 1) % 20) + 1
         archetype_entry = archetypes_data.get(archetype_number, {})
+        print("🌐 Язык пользователя:", lang)
+        print("🔍 Доступные ключи архетипа:", list(archetype_entry.keys()))
         archetype = archetype_entry.get(lang) or archetype_entry.get("ru") or {
             "name": "Неизвестно",
             "keywords": [],
