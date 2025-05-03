@@ -88,7 +88,30 @@ archetypes_data = {
         }
     },
 
-  6: {
+  5: {
+    'en': {
+        'name': 'Red Serpent',
+        'keywords': ['kundalini', 'instincts', 'body wisdom', 'vitality', 'life force'],
+        'description': (
+            "Red Serpent embodies the primal life force — the awakened energy of the body. This is the archetype of instinct, survival, and the sacred intelligence of form.\n\n"
+            "It brings renewal through presence in the physical: pulse, rhythm, skin, breath. Shedding the old, the Serpent reminds us that embodiment is a path to awakening.\n\n"
+            "Shadow: addiction, obsession with survival, disconnection from spirit.\n"
+            "Gift: regeneration, sensual wisdom, trust in the body’s knowing."
+        )
+    },
+    'ru': {
+        'name': 'Красная Змея',
+        'keywords': ['кундалини', 'инстинкты', 'мудрость тела', 'витализация', 'жизненная сила'],
+        'description': (
+            "Красная Змея — это пробуждённая энергия тела, сила инстинкта и жизненного огня. День Змеи связан с ритмом, кожей, дыханием, импульсом жизни.\n\n"
+            "Этот архетип напоминает: тело — не просто оболочка, а проводник мудрости. Через него мы ощущаем настоящую трансформацию. Змея сбрасывает кожу, чтобы ожить заново.\n\n"
+            "Тень: зависимости, зацикленность на выживании, отрыв от духа.\n"
+            "Дар: регенерация, чувственная мудрость, доверие к телесному знанию."
+        )
+    }
+},
+
+    6: {
         'en': {
             'name': 'White Worldbridger',
             'keywords': ['death', 'surrender', 'bridging', 'release', 'equalizing'],
