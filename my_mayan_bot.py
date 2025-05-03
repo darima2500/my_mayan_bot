@@ -115,18 +115,11 @@ def send_today_wave(message):
 def about_project(message):
     lang = get_language(message.chat.id)
     text = (
-        "Этот бот — пространство для созвучия с собой через живую ткань времени.\n\n"
-        "Здесь нет предсказаний и инструкций. "
-        "Цолькин — не календарь событий, а карта внутреннего пути. "
-        "Он помогает ощутить глубинный ритм жизни, где каждый день — уникальная вибрация на пути Души, Тела и Духа.\n\n"
+        "Этот бот — пространство для внутренней сонастройки, ежедневный ритуал вспоминания себя через живой ритм времени.\n\n"
         "Через синтез современных технологий и древних космических циклов, "
         "этот проект приглашает тебя сонастроить твои земные и высшие аспекты в целостную систему через синхронию в пространстве времени."
     ) if lang == "ru" else (
         "This bot is a space for attuning to yourself through the living fabric of time.\n\n"
-        "Here there are no predictions or instructions. "
-        "Only the day's energies — the rhythme of the Earth and cosmos — inviting you to remember your true nature.\n\n"
-        "Tzolkin is not a calendar of events, but a map of your inner journey. "
-        "It helps you feel the deeper rhythm of life, where each day is a unique vibration on your path of the soul's growth.\n\n"
         "Through the synthesis of modern technologies and ancient cosmic cycles, "
         "this project builds a bridge between the eternal and the current, inviting you to attune your body, soul and a spirit into a wholeness once again."
     )
@@ -143,7 +136,7 @@ questions_ru = [
     "Что я прячу от самого себя?",
     "Что во мне готово расцвести?",
     "Где я могу быть мягче к себе?",
-    "Что я боюсь признать перед собой?"
+    "Что я боюсь увидеть в себе?"
 ]
 
 questions_en = [
@@ -172,23 +165,15 @@ def reflect(message):
 def about_calendar(message):
     lang = get_language(message.chat.id)
     text = (
-        "Цолькин — это священный календарь майя из 260 дней, отражающий внутреннюю архитектуру самого творения.\n\n"
-        "Он сплетает 20 архетипов — универсальных сил сознания — и 13 тонов — этапов движения и роста. "
-        "Каждый день представляет собой уникальную встречу архетипа и тона, рождая живую вибрацию, которая зеркалит разворачивание жизни.\n\n"
+        "Цолькин — это священный 260-дневный цикл, основанный на майянской космологии. Он отображает невидимую архитектуру сознания и времени.\n\n"
+        "Он объединяет 20 архетипов и 13 тонов (дней), создавая уникальный энергетический отпечаток каждого дня. "
         "В нашем проекте используется система подсчёта по доктору Карлу Кальману, которая фокусируется на эволюции сознания. Это инструмент настройки с естественными циклами. \n\n"
-        "Цолькин — не просто способ отслеживать время. "
-        "Это космическая карта твоего внутреннего пути, показывающая, как циклы рождения, роста, трансформации и обновления движутся через тебя, "
-        "соединяя тебя с ритмами Земли, звёзд и самого источника жизни.\n\n"
         "Сонастраиваясь с этими энергиями, ты можешь глубже вспомнить свою природу и двигаться по жизни с большей ясностью, свободой и глубиной."
     ) if lang == "ru" else (
-        "Tzolkin is the sacred Mayan calendar of 260 days, reflecting the inner architecture of creation itself.\n\n"
-        "It weaves together 20 archetypes — universal forces of consciousness — and 13 tones — stages of movement and evolution. "
-        "Each day is a unique convergence of archetype and tone, creating a living vibration that mirrors the unfolding of life.\n\n"
+        "Tzolkin is a sacred 260-day cycle rooted in Mayan cosmology. It maps the invisible architecture of consciousness and time.\n\n"
+        "It combines 20 archetypes (universal forces of life) and 13 tones (phases of evolution), forming a unique energetic signature for each day. "
         "Our project follows the approach of Dr. Carl Calleman, focusing on the evolution of consciousness. "
-        "It is a tool for tuning into natural cycles.\n\n"
-        "Tzolkin is not just a way to track time. It is a cosmic map of your inner journey, showing how the cycles of birth, growth, transformation, and renewal move through you, "
-        "aligning you with the rhythms of Earth, the stars, and the Source itself.\n\n"
-        "By attuning to these energies, you can remember your true nature and move through life with more clarity, freedom, and depth."
+        "Each day carries a distinct pulse in the dance of creation, helping you tune into the deeper currents shaping your experience..\n\n"
     )
     bot.send_message(message.chat.id, text)
     
