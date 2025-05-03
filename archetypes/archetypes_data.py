@@ -109,7 +109,8 @@ archetypes_data = {
                 "Дар: освобождение, священный переход, вера в неизвестное."
             )
         }
-    }
+    },
+    
 7: {
         'en': {
             'name': 'Blue Hand',
@@ -410,24 +411,26 @@ archetypes_data = {
 },
 
 20: {
-    'en': {
-        'name': 'Yellow Sun',
-        'keywords': ['enlightenment', 'life force', 'universal fire', 'wholeness', 'presence'],
-        'description': (
-            "Yellow Sun is the source of light and the remembrance of divine origin. This day radiates life force, clarity, and the energy of completion and unity.\n\n"
-            "It reminds us that all is held within the light — that we are not separate, but part of the great flame of existence.\n\n"
-            "Shadow: ego inflation, burnout from overexposure, disconnection from source.\n"
-            "Gift: illumination, unconditional presence, returning to essence."
-        )
-    },
-    'ru': {
-        'name': 'Жёлтое Солнце',
-        'keywords': ['просветление', 'жизненная сила', 'вселенский огонь', 'целостность', 'присутствие'],
-        'description': (
-            "Жёлтое Солнце — источник света и завершения. Это день сияния, осознанности и соединения с Божественным началом.\n\n"
-            "Солнце не отделяет, оно объединяет. Оно освещает всё, помогая вспомнить, кто ты есть на самом деле — искра Единого.\n\n"
-            "Тень: эгоцентризм, выгорание, потеря связи с Источником.\n"
-            "Дар: просветлённое присутствие, внутренняя целостность, возвращение к сути."
-        )
+        'en': {
+            'name': 'Yellow Sun',
+            'keywords': ['enlightenment', 'life force', 'universal fire', 'wholeness', 'presence'],
+            'description': (
+                "Yellow Sun is the source of light and the remembrance of divine origin. This day radiates life force, clarity, and the energy of completion and unity.\n\n"
+                "It reminds us that all is held within the light — that we are not separate, but part of the great flame of existence.\n\n"
+                "Shadow: ego inflation, burnout from overexposure, disconnection from source.\n"
+                "Gift: illumination, unconditional presence, returning to essence."
+            )
+        },
+        'ru': {
+            'name': 'Жёлтое Солнце',
+            'keywords': ['просветление', 'жизненная сила', 'вселенский огонь', 'целостность', 'присутствие'],
+            'description': (
+                "Жёлтое Солнце — источник света и завершения. Это день сияния, осознанности и соединения с Божественным началом.\n\n"
+                "Солнце не отделяет, оно объединяет. Оно освещает всё, помогая вспомнить, кто ты есть на самом деле — искра Единого.\n\n"
+                "Тень: эгоцентризм, выгорание, потеря связи с Источником.\n"
+                "Дар: просветлённое присутствие, внутренняя целостность, возвращение к сути."
+            )
+        }
     }
-},
+}
+
