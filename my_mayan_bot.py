@@ -252,17 +252,23 @@ def handle_birthdate(message):
             "description": "Описание архетипа недоступно."
         }
 
-        response = (
-            f"🔢 *Кин*: {kin_number}\n"
-            f"💠 *Архетип*: {archetype['name']} — {', '.join(archetype['keywords'])}\n"
-            f"🎵 *Тон*: {tone_number}\n"
-            f"🌊 *Волна*: {wave_name}"
-        ) if lang == "ru" else (
-            f"🔢 *Kin*: {kin_number}\n"
-            f"💠 *Архетип*: {archetype['name']} — {', '.join(archetype['keywords'])}\n\n{archetype['description']}"
-            f"🎵 *Tone*: {tone_number}\n"
-            f"🌊 *Wave*: {wave_name}"
-        )
+        if lang == "ru":
+    response = (
+        f"🔢 *Кин*: {kin_number}\n"
+        f"💠 *Архетип*: *{archetype['name']}* — _{', '.join(archetype['keywords'])}_\n\n"
+        f"{archetype['description']}\n\n"
+        f"🎵 *Тон*: {tone_number}\n"
+        f"🌊 *Волна*: {wave_name}"
+    )
+        else:
+    response = (
+        f"🔢 *Kin*: {kin_number}\n"
+        f"💠 *Archetype*: *{archetype['name']}* — _{', '.join(archetype['keywords'])}_\n\n"
+        f"{archetype['description']}\n\n"
+        f"🎵 *Tone*: {tone_number}\n"
+        f"🌊 *Wave*: {wave_name}"
+    )
+
 
         bot.send_message(message.chat.id, response, parse_mode="Markdown")
 
