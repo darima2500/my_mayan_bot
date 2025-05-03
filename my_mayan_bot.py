@@ -41,8 +41,8 @@ bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 
 menu_buttons = {
-    "en": ["📅 Today's Wave", "🔢 Calculate Kin", "🎴 Reflect", "📖 About the Project", "✨ About the Calendar"],
-    "ru": ["📅 Текущая Волна", "🔢 Рассчитать Кин", "🎴 Рефлексия", "📖 О проекте", "✨ О Календаре"]
+    "en": ["📅 Today's Wave", "🔢 Calculate Kin", "📖 About the Project", "✨ About the Calendar"],
+    "ru": ["📅 Текущая Волна", "🔢 Рассчитать Кин", "📖 О проекте", "✨ О Календаре"]
 }
 
 # Обработчик команды /start
@@ -125,41 +125,6 @@ def about_project(message):
     )
     bot.send_message(message.chat.id, text)
 
-
-questions_ru = [
-    "Что моё тело хочет сказать мне прямо сейчас?",
-    "В каком месте моей жизни я притворяюсь?",
-    "Что мне стоит отпустить сегодня?",
-    "Какая часть меня хочет быть услышанной?",
-    "Где я чувствую напряжение внутри?",
-    "О чём тоскует моё сердце?",
-    "Что я прячу от самого себя?",
-    "Что во мне готово расцвести?",
-    "Где я могу быть мягче к себе?",
-    "Что я боюсь увидеть в себе?"
-]
-
-questions_en = [
-    "What is my body trying to tell me right now?",
-    "Where in my life am I pretending?",
-    "What am I ready to let go of today?",
-    "Which part of me wants to be heard?",
-    "Where do I feel tension inside?",
-    "What is my heart longing for?",
-    "What am I hiding from myself?",
-    "What within me is ready to bloom?",
-    "Where can I be softer with myself?",
-    "What am I afraid to admit to myself?"
-]
-
-@bot.message_handler(func=lambda message: message.text in ["🎴 Рефлексия", "🎴 Reflect"])
-def reflect(message):
-    lang = get_language(message.chat.id)
-    
-    questions = questions_ru if lang == "ru" else questions_en
-    selected_question = random.choice(questions)
-    
-    bot.send_message(message.chat.id, selected_question)
     
 @bot.message_handler(func=lambda message: message.text in ["✨ О Календаре", "✨ About the Calendar"])
 def about_calendar(message):
@@ -183,8 +148,6 @@ ALLOWED_TEXTS = [
     "📅 Текущая Волна",
     "🔢 Calculate Kin"  # в en
     "🔢 Рассчитать Кин"  # в ru
-    "🎴 Reflect",
-    "🎴 Рефлексия",
     "📖 About the Project",
     "📖 О проекте",
     "✨ About the Calendar",
