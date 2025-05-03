@@ -103,6 +103,14 @@ def send_today_wave(message):
 
     found_wave = find_wave_by_kin(kin_number)
     if found_wave:
+        # 🔹 Отправляем картинку волны
+        wave_image_path = f"wave_images/wave_{found_wave['number']}.jpg"
+        try:
+            with open(wave_image_path, 'rb') as photo:
+                bot.send_photo(message.chat.id, photo)
+        except FileNotFoundError:
+            bot.send_message(message.chat.id, "📷 Картинка для этой волны пока не добавлена.")
+
         try:
             wave_message = found_wave["get_message_func"](lang)
         except Exception as e:
