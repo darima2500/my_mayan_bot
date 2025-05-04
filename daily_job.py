@@ -6,7 +6,7 @@ from language_store import get_language
 from reminders import load_reminders
 from waves_schedule import waves_schedule
 from tones.tones_data import tones_data
-from mayan_bot import get_current_kin, get_current_tone, find_wave_by_kin
+from my_mayan_bot import get_current_kin, get_current_tone, find_wave_by_kin
 
 load_dotenv()
 bot = telebot.TeleBot(os.getenv("BOT_TOKEN"))
