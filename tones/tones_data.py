@@ -111,12 +111,12 @@ tones_data = {
         "ru": {
             "name": "Планетарный Тон",
             "keywords": "проявление, результат",
-            "description": "Всё, что выстраивалось в течение волны, становится зримым. Это день, когда можно увидеть реальные формы и плоды. Хорошее время для начала — особенно того, что опирается на уже пройденное."
+            "description": "Всё, что выстраивалось в течение волны, становится зримым. Это день, когда можно увидеть реальные формы и плоды тех процессов, которые запустились 10 дней назад. Хорошее время для манифестации — особенно того, что опирается на уже пройденное."
         },
         "en": {
             "name": "Planetary Tone",
             "keywords": "manifestation, result",
-            "description": "What was built throughout the wave becomes visible. A time to see real outcomes. Great for beginnings — especially those rooted in what’s already been established."
+            "description": "What was built throughout the wave becomes visible. A time to see real outcomes of what was planted 10 days ago. Great for manifestations — especially those rooted in what’s already been established."
         }
     },
     11: {
@@ -135,7 +135,7 @@ tones_data = {
         "ru": {
             "name": "Кристаллический Тон",
             "keywords": "объединение, совершенство",
-            "description": "Число 12 — символ полноты и совершенства во многих традициях. Это день объединения всего прожитого. Здесь появляется ясность о сути происходящего, и становится возможным взаимодействие с другими из места целостности. Подходит и для новых шагов, особенно совместных."
+            "description": "Число 12 — символ полноты и совершенства во многих традициях. Это день объединения всего прожитого. Здесь появляется ясность о сути происходящего, и становится возможным взаимодействие с другими из места целостности."
         },
         "en": {
             "name": "Crystal Tone",
