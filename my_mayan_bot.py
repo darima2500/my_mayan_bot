@@ -82,14 +82,17 @@ def set_user_language(message):
     lang = "en" if message.text == "🇬🇧 English" else "ru"
     set_language(message.chat.id, lang)
 
+    # Строим новое меню
     markup = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     for button in build_main_menu(message.chat.id, lang):
         markup.add(KeyboardButton(button))
 
-    bot.send_message(message.chat.id, text, parse_mode="Markdown", reply_markup=markup)
+    # Отправляем приветствие
+    welcome_text = (
+        "Welcome! Choose an option below:" if lang == "en"
+        else "Добро пожаловать! Выбери действие ниже:"
+    )
 
-    
-    welcome_text = "Welcome! Choose an option below:" if lang == "en" else "Добро пожаловать! Выбери действие ниже:"
     bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
 
 
