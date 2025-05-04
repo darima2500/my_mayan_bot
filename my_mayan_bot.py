@@ -40,10 +40,16 @@ WEBHOOK_URL = "https://web-production-93b7.up.railway.app"
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 
-menu_buttons = {
-    "en": ["📅 Today's Wave", "🔢 Calculate Kin", "🔔 Notifications", "✨ About the Calendar", "📖 About the Project"],
-    "ru": ["📅 Текущая Волна", "🔢 Рассчитать Кин", "🔔 Уведомления", "✨ О Календаре", "📖 О проекте"]
-}
+def build_main_menu(user_id, lang):
+    reminders = load_reminders()
+    is_enabled = reminders.get(str(user_id), False)
+
+    if lang == "ru":
+        notify_label = "🔔 Уведомления: Вкл" if is_enabled else "🔕 Уведомления: Выкл"
+        return ["📅 Текущая Волна", "🔢 Рассчитать Кин", "📖 О проекте", "✨ О Календаре", notify_label]
+    else:
+        notify_label = "🔔 Notifications: On" if is_enabled else "🔕 Notifications: Off"
+        return ["📅 Today's Wave", "🔢 Calculate Kin", "📖 About the Project", "✨ About the Calendar", notify_label]
 
 # Обработчик команды /start
 @bot.message_handler(commands=['start'])
@@ -77,8 +83,11 @@ def set_user_language(message):
     set_language(message.chat.id, lang)
 
     markup = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    for button in menu_buttons[lang]:
+    for button in build_main_menu(message.chat.id, lang):
         markup.add(KeyboardButton(button))
+
+    bot.send_message(message.chat.id, text, parse_mode="Markdown", reply_markup=markup)
+
     
     welcome_text = "Welcome! Choose an option below:" if lang == "en" else "Добро пожаловать! Выбери действие ниже:"
     bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
@@ -285,20 +294,35 @@ def handle_birthdate(message):
         user_states.pop(message.chat.id, None)
 
         
-@bot.message_handler(func=lambda m: m.text in ["🔔 Уведомления", "🔔 Notifications"])
+@bot.message_handler(func=lambda m: m.text in [
+    "🔔 Уведомления", "🔕 Уведомления", "🔔 Уведомления: Вкл", "🔕 Уведомления: Выкл",
+    "🔔 Notifications", "🔕 Notifications", "🔔 Notifications: On", "🔕 Notifications: Off"
+])
 def toggle_reminder(message):
+    user_id = str(message.chat.id)
     lang = get_language(message.chat.id)
     reminders = load_reminders()
-    current = reminders.get(str(message.chat.id), False)
-    reminders[str(message.chat.id)] = not current
+    current = reminders.get(user_id, False)
+    reminders[user_id] = not current
     save_reminders(reminders)
 
+    is_now = reminders[user_id]
+
     text = (
-        "✅ Утреннее сообщение *включено*." if not current else "🚫 Утреннее сообщение *отключено*."
+        f"{'✅ Утреннее сообщение *включено*.' if is_now else '🚫 Утреннее сообщение *отключено*.'}\n\n"
+        "Каждое утро ты будешь получать описание текущего дня по майянскому календарю."
     ) if lang == "ru" else (
-        "✅ Morning reminder *enabled*." if not current else "🚫 Morning reminder *disabled*."
+        f"{'✅ Morning reminder *enabled*.' if is_now else '🚫 Morning reminder *disabled*.'}\n\n"
+        "Each morning you'll receive the Mayan energy update for the day."
     )
-    bot.send_message(message.chat.id, text, parse_mode="Markdown")
+
+    # Обновим меню
+    markup = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    for button in build_main_menu(message.chat.id, lang):
+        markup.add(KeyboardButton(button))
+
+    bot.send_message(message.chat.id, text, parse_mode="Markdown", reply_markup=markup)
+
     
 # --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
