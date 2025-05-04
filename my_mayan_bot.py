@@ -147,9 +147,14 @@ def about_project(message):
     bot.send_message(message.chat.id, text)
 
     
+
 @bot.message_handler(func=lambda message: message.text in ["✨ О Календаре", "✨ About the Calendar"])
 def about_calendar(message):
     lang = get_language(message.chat.id)
+
+    # Путь к картинке (если она лежит локально в папке проекта)
+    image_path = "images/tzolkin_visual.png"
+
     text = (
         "Цолькин — это священный 260-дневный цикл, основанный на майянской космологии. Он отображает невидимую архитектуру сознания и времени.\n\n"
         "Он объединяет 20 архетипов и 13 тонов (дней), создавая уникальный энергетический отпечаток каждого дня. "
@@ -159,9 +164,16 @@ def about_calendar(message):
         "Tzolkin is a sacred 260-day cycle rooted in Mayan cosmology. It maps the invisible architecture of consciousness and time.\n\n"
         "It combines 20 archetypes (universal forces of life) and 13 tones (phases of evolution), forming a unique energetic signature for each day. "
         "Our project follows the approach of Dr. Carl Calleman, focusing on the evolution of consciousness. "
-        "Each day carries a distinct pulse in the dance of creation, helping you tune into the deeper currents shaping your experience..\n\n"
+        "Each day carries a distinct pulse in the dance of creation, helping you tune into the deeper currents shaping your experience."
     )
+
+    # Сначала отправляем изображение
+    with open(image_path, "rb") as photo:
+        bot.send_photo(message.chat.id, photo)
+
+    # Потом — текст
     bot.send_message(message.chat.id, text)
+
     
 ALLOWED_TEXTS = [
     "/start",
