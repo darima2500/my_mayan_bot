@@ -37,12 +37,20 @@ def get_daily_message(lang="en"):
         return tone_block
 
 def send_morning_updates():
+    print("🚀 Начинаем рассылку...")
     reminders = load_reminders()
+    print(f"📋 Загружено пользователей: {len(reminders)}")
+
     for user_id, enabled in reminders.items():
+        print(f"🔍 Проверяем пользователя {user_id} (enabled={enabled})")
         if enabled:
             lang = get_language(int(user_id))
+            print(f"🌐 Язык пользователя: {lang}")
             text = get_daily_message(lang=lang)
+            print(f"✉️ Отправка сообщения пользователю {user_id}...")
             bot.send_message(int(user_id), text, parse_mode="Markdown")
+    print("✅ Рассылка завершена.")
+
 
 if __name__ == "__main__":
     send_morning_updates()
