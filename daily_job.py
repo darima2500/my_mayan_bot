@@ -2,12 +2,39 @@
 import os
 import telebot
 from dotenv import load_dotenv
-from main import get_daily_message
 from language_store import get_language
-from reminders import load_reminders  # это твоя функция, может быть в отдельном файле
+from reminders import load_reminders
+from waves_schedule import waves_schedule
+from tones.tones_data import tones_data
+from main import get_current_kin, get_current_tone, find_wave_by_kin
 
 load_dotenv()
 bot = telebot.TeleBot(os.getenv("BOT_TOKEN"))
+
+def get_daily_message(lang="en"):
+    kin_number = get_current_kin()
+    tone_number = get_current_tone(kin_number)
+
+    tone_data = tones_data[tone_number][lang]
+    tone_name = tone_data["name"]
+    tone_keywords = tone_data["keywords"]
+    tone_description = tone_data["description"]
+
+    tone_block = (
+        f"🌟 *{tone_name}* (Tone {tone_number})\n"
+        f"_{tone_keywords}_\n\n"
+        f"{tone_description}"
+    )
+
+    wave = find_wave_by_kin(kin_number)
+    if wave:
+        try:
+            wave_text = wave["get_message_func"](lang)
+            return f"{tone_block}\n\n{wave_text}"
+        except Exception as e:
+            return f"{tone_block}\n\n⚠️ Ошибка в тексте волны: {e}"
+    else:
+        return tone_block
 
 def send_morning_updates():
     reminders = load_reminders()
@@ -15,7 +42,7 @@ def send_morning_updates():
         if enabled:
             lang = get_language(int(user_id))
             text = get_daily_message(lang=lang)
-            bot.send_message(int(user_id), text)
+            bot.send_message(int(user_id), text, parse_mode="Markdown")
 
 if __name__ == "__main__":
     send_morning_updates()
