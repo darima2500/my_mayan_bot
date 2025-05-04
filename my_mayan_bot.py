@@ -9,7 +9,7 @@ from language_store import get_language, set_language
 from dotenv import load_dotenv
 from tones.tones_data import tones_data
 from archetypes.archetypes_data import archetypes_data
-
+from reminders import save_reminders, load_reminders
 
 
 
@@ -41,8 +41,8 @@ bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 
 menu_buttons = {
-    "en": ["📅 Today's Wave", "🔢 Calculate Kin", "📖 About the Project", "✨ About the Calendar"],
-    "ru": ["📅 Текущая Волна", "🔢 Рассчитать Кин", "📖 О проекте", "✨ О Календаре"]
+    "en": ["📅 Today's Wave", "🔢 Calculate Kin", "🔔 Notifications", "✨ About the Calendar", "📖 About the Project"],
+    "ru": ["📅 Текущая Волна", "🔢 Рассчитать Кин", "🔔 Уведомления", "✨ О Календаре", "📖 О проекте"]
 }
 
 # Обработчик команды /start
@@ -285,6 +285,21 @@ def handle_birthdate(message):
         user_states.pop(message.chat.id, None)
 
         
+@bot.message_handler(func=lambda m: m.text in ["🔔 Уведомления", "🔔 Notifications"])
+def toggle_reminder(message):
+    lang = get_language(message.chat.id)
+    reminders = load_reminders()
+    current = reminders.get(str(message.chat.id), False)
+    reminders[str(message.chat.id)] = not current
+    save_reminders(reminders)
+
+    text = (
+        "✅ Утреннее сообщение *включено*." if not current else "🚫 Утреннее сообщение *отключено*."
+    ) if lang == "ru" else (
+        "✅ Morning reminder *enabled*." if not current else "🚫 Morning reminder *disabled*."
+    )
+    bot.send_message(message.chat.id, text, parse_mode="Markdown")
+    
 # --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
     bot.remove_webhook()
