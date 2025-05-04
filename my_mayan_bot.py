@@ -132,6 +132,10 @@ def send_today_wave(message):
         bot.send_message(message.chat.id, "❌ Wave not found.")
 
 
+@bot.message_handler(commands=["id"])
+def get_id(message):
+    bot.send_message(message.chat.id, f"Your Telegram ID: {message.chat.id}")
+
 @bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
 def about_project(message):
     lang = get_language(message.chat.id)
