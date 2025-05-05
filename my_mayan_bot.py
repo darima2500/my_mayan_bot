@@ -231,10 +231,7 @@ ALLOWED_TEXTS = [
     "🇷🇺 Русский"
 ]
 
-@bot.message_handler(func=lambda message: message.text in ALLOWED_TEXTS)
-def handle_allowed_buttons(message):
-    # ничего не делаем, просто позволяем основным обработчикам работать
-    pass
+
 
 # --- Обработчик webhook для Telegram
 @app.route(f"/{TOKEN}", methods=["POST"])
