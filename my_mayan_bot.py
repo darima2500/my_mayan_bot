@@ -215,10 +215,10 @@ ALLOWED_TEXTS = [
     "/start",
     "📅 Today's Wave",
     "📅 Текущая Волна",
-    "🔢 Calculate Kin"  # в en
+    "🔢 Calculate Kin",  # в en
     "🌌 Получить Космограмму",
     "🌌 Order Cosmogram",
-    "🔢 Рассчитать Кин"  # в ru
+    "🔢 Рассчитать Кин",  # в ru
     "🌞 Order Solar Return",
     "🌞 Заказать Соляр",
     "🎨 Мандала Волны",
