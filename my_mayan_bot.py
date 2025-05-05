@@ -252,8 +252,6 @@ def webhook():
 def index():
     return "Hello, this is Mayan Bot!"
 
-# --- Словарь для хранения временного состояния пользователей
-user_states = {}
 
 # --- Обработчик кнопки "Рассчитать Кин"
 @bot.message_handler(func=lambda message: message.text in ["🔢 Рассчитать Кин", "🔢 Calculate Kin"])
