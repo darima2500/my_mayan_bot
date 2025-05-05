@@ -9,6 +9,7 @@ from language_store import get_language, set_language
 from dotenv import load_dotenv
 from tones.tones_data import tones_data
 from archetypes.archetypes_data import archetypes_data
+from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 from reminders import save_reminders, load_reminders
 
 
@@ -46,10 +47,29 @@ def build_main_menu(user_id, lang):
 
     if lang == "ru":
         notify_label = "🔔 Уведомления: Вкл" if is_enabled else "🔕 Уведомления: Выкл"
-        return ["📅 Текущая Волна", "🔢 Рассчитать Кин", "📖 О проекте", "✨ О Календаре", notify_label]
+        return [
+            "📅 Текущая Волна",
+            "🔢 Рассчитать Кин",
+            "🌌 Получить Космограмму",
+            "🌞 Заказать Соляр",
+            "🎨 Мандала Волны",
+            "📖 О проекте",
+            "✨ О Календаре",
+            notify_label
+        ]
     else:
         notify_label = "🔔 Notifications: On" if is_enabled else "🔕 Notifications: Off"
-        return ["📅 Today's Wave", "🔢 Calculate Kin", "📖 About the Project", "✨ About the Calendar", notify_label]
+        return [
+            "📅 Today's Wave",
+            "🔢 Calculate Kin",
+            "🌌 Order Cosmogram",
+            "🌞 Order Solar Return",
+            "🎨 Wave Mandala",
+            "📖 About the Project",
+            "✨ About the Calendar",
+            notify_label
+        ]
+
 
 # Обработчик команды /start
 @bot.message_handler(commands=['start'])
@@ -196,7 +216,13 @@ ALLOWED_TEXTS = [
     "📅 Today's Wave",
     "📅 Текущая Волна",
     "🔢 Calculate Kin"  # в en
+    "🌌 Получить Космограмму",
+    "🌌 Order Cosmogram",
     "🔢 Рассчитать Кин"  # в ru
+    "🌞 Order Solar Return",
+    "🌞 Заказать Соляр",
+    "🎨 Мандала Волны",
+    "🎨 Wave Mandala",
     "📖 About the Project",
     "📖 О проекте",
     "✨ About the Calendar",
@@ -326,6 +352,114 @@ def toggle_reminder(message):
 
     bot.send_message(message.chat.id, text, parse_mode="Markdown", reply_markup=markup)
 
+# --- ОБРАБОТЧИК "Получить Космограмму" ---
+@bot.message_handler(func=lambda m: m.text in ["🌌 Получить Космограмму", "🌌 Order Cosmogram"])
+def handle_cosmogram_order(message):
+    lang = get_language(message.chat.id)
+    if lang == "ru":
+        text = (
+            "🌌 *Личная космограмма* — полный разбор твоей энергетической карты по майянскому календарю с расчетами твоих личных энергий.\n"
+            "В подарок ты получишь 5 мандал по энергиям твоей космограммы для рисования.\n\n"
+            "💰 Стоимость: *2200 р*\n\n"
+            "Включает:\n"
+            "– Центральный Кин\n"
+            "– Мужская и женская энергии\n"
+            "– Линия прошлого и будущего\n\n"
+            "После оплаты пришли, пожалуйста, скрин/чек сюда в чат или просто напиши, каким способом оплатила.\n\n"
+            "💳 Momo: 0901 234 567\n"
+            "🏦 Vietcombank: 123 456 789 0001"
+        )
+    else:
+        text = (
+            "🌌 *Personal Cosmogram* — a full analysis of your energetic map based on the Mayan calendar.\n"
+            "Bonus: you'll receive 5 mandalas based on your cosmogram energies for coloring or meditation.\n\n"
+            "💰 Price: *15 EUR*\n\n"
+            "Includes:\n"
+            "– Central Kin\n"
+            "– Feminine & Masculine energies\n"
+            "– Past and Future lines\n\n"
+            "After payment, please send a screenshot or message here confirming the method.\n\n"
+            "💳 Momo: 0901 234 567\n"
+            "🏦 Vietcombank: 123 456 789 0001"
+        )
+    bot.send_message(message.chat.id, text, parse_mode="Markdown")
+    bot.register_next_step_handler(message, receive_cosmogram_proof)
+
+def receive_cosmogram_proof(message):
+    username = message.from_user.username or message.from_user.first_name
+    admin_id = 838460049  # Заменить на свой ID
+    if message.photo:
+        photo_id = message.photo[-1].file_id
+        bot.send_photo(admin_id, photo_id, caption=f"[🌌 Космограмма] От @{username}")
+    else:
+        bot.send_message(admin_id, f"[🌌 Космограмма] от @{username}:\n{message.text}")
+    bot.send_message(message.chat.id, "📅 Теперь, пожалуйста, напиши дату рождения в формате:\n`20.06.1991 19:30 Ханой`", parse_mode="Markdown")
+
+# --- ОБРАБОТЧИК "Заказать Соляр" ---
+@bot.message_handler(func=lambda m: m.text in ["🌞 Заказать Соляр", "🌞 Order Solar Return"])
+def handle_solar_order(message):
+    lang = get_language(message.chat.id)
+    if lang == "ru":
+        text = (
+            "☀️ *Личный соляр* — обзор главных тем и периодов твоего года.\n\n"
+            "💰 Стоимость: *2200 р*\n\n"
+            "Включает:\n"
+            "– Главные энергии года\n"
+            "– Темы трансформации\n"
+            "– Важные периоды\n"
+            "– В подарок 5 мандал для сонастройки с энергиями твоего личного года (+бонус)\n\n"
+            "После оплаты пришли, пожалуйста, скрин/чек сюда в чат или просто напиши, каким способом оплатила.\n\n"
+            "💳 Momo: 0901 234 567\n"
+            "🏦 Vietcombank: 123 456 789 0001"
+        )
+    else:
+        text = (
+            "☀️ *Solar Return Reading* — a personal energetic forecast for your year ahead.\n\n"
+            "💰 Price: *15 EUR*\n\n"
+            "Includes:\n"
+            "– Main energies of the year\n"
+            "– Transformation themes\n"
+            "– Sensitive timelines\n"
+            "– Bonus: 5 mandalas to support alignment throughout the year\n\n"
+            "After payment, please send a screenshot or message here confirming the method.\n\n"
+            "💳 Momo: 0901 234 567\n"
+            "🏦 Vietcombank: 123 456 789 0001"
+        )
+    bot.send_message(message.chat.id, text, parse_mode="Markdown")
+    bot.register_next_step_handler(message, receive_solar_proof)
+
+def receive_solar_proof(message):
+    username = message.from_user.username or message.from_user.first_name
+    admin_id = 838460049  # Заменить на свой ID
+    if message.photo:
+        photo_id = message.photo[-1].file_id
+        bot.send_photo(admin_id, photo_id, caption=f"[☀️ Соляр] От @{username}")
+    else:
+        bot.send_message(admin_id, f"[☀️ Соляр] от @{username}:\n{message.text}")
+    bot.send_message(message.chat.id, "📅 Теперь, пожалуйста, напиши дату рождения в формате:\n`20.06.1991 19:30 Ханой`", parse_mode="Markdown")
+
+# --- ОБРАБОТЧИК "Мандала Волны" (открытый доступ) ---
+@bot.message_handler(func=lambda m: m.text in ["🎨 Мандала Волны", "🎨 Wave Mandala"])
+def handle_free_mandala(message):
+    lang = get_language(message.chat.id)
+    if lang == "ru":
+        text = (
+            "🎨 *Мандала Волны*"
+            "Каждые 13 дней ты можешь получать новую мандалу для самостоятельного рисования, которая помогает сонастроиться с текущими энергиями."
+            "Здесь ты найдёшь текущую мандалу:"
+        )
+        caption = "🌀 Текущая мандала. Обновляется каждые 13 дней."
+    else:
+        text = (
+            "🎨 *Wave Mandala*"
+            "Every 13 days you can receive a new mandala to draw it yourself which will help you to align with the current wave's energy."
+            "Here is the current mandala:"
+        )
+        caption = "🌀 Current mandala. Updated every 13 days."
+
+    bot.send_message(message.chat.id, text, parse_mode="Markdown")
+    with open("wave_mandalas/mandala_current.jpg", "rb") as photo:
+        bot.send_photo(message.chat.id, photo, caption=caption)
     
 # --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
