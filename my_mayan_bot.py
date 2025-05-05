@@ -210,26 +210,6 @@ def about_calendar(message):
     # Потом — текст
     bot.send_message(message.chat.id, text)
 
-    
-ALLOWED_TEXTS = [
-    "/start",
-    "📅 Today's Wave",
-    "📅 Текущая Волна",
-    "🔢 Calculate Kin",  # в en
-    "🌌 Получить Космограмму",
-    "🌌 Order Cosmogram",
-    "🔢 Рассчитать Кин",  # в ru
-    "🌞 Order Solar Return",
-    "🌞 Заказать Соляр",
-    "🎨 Мандала Волны",
-    "🎨 Wave Mandala",
-    "📖 About the Project",
-    "📖 О проекте",
-    "✨ About the Calendar",
-    "✨ О Календаре",
-    "🇬🇧 English",
-    "🇷🇺 Русский"
-]
 
 
 
