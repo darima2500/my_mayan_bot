@@ -352,171 +352,75 @@ def toggle_reminder(message):
 
     bot.send_message(message.chat.id, text, parse_mode="Markdown", reply_markup=markup)
 
-# --- Глобальный словарь для отслеживания состояния пользователя ---
-user_states = {}
+
 
 # --- ОБРАБОТЧИК "Получить Космограмму" ---
 @bot.message_handler(func=lambda m: m.text in ["🌌 Получить Космограмму", "🌌 Order Cosmogram"])
-def handle_cosmogram_order(message):
+def handle_cosmogram_simple(message):
     lang = get_language(message.chat.id)
-    user_states[message.chat.id] = "awaiting_cosmogram_proof"
-
     if lang == "ru":
         text = (
-            "🌌 *Личная космограмма* — полный разбор твоей энергетической карты по майянскому календарю с расчетами твоих личных энергий.\n"
-            "В подарок ты получишь 5 мандал по энергиям твоей космограммы для рисования.\n\n"
+            "🌌 *Личная космограмма* — полный разбор твоей энергетической карты по майянскому календарю с расчётами твоих личных энергий.\n"
+            "В подарок ты получишь 5 мандал для рисования по энергиям своей космограммы.\n\n"
             "💰 Стоимость: *2200 р*\n\n"
-            "Включает:\n"
-            "– Центральный Кин\n"
-            "– Мужская и женская энергии\n"
-            "– Линия прошлого и будущего\n\n"
-            "После оплаты пришли, пожалуйста, скрин/чек сюда в чат или просто напиши, каким способом оплатила.\n\n"
-            "💳 Momo: 0901 234 567\n"
-            "🏦 Vietcombank: 123 456 789 0001"
+            "✉️ Чтобы заказать, просто напиши мне напрямую: @darimacello"
         )
     else:
         text = (
-            "🌌 *Personal Cosmogram* — a full analysis of your energetic map based on the Mayan calendar.\n"
-            "Bonus: you'll receive 5 mandalas based on your cosmogram energies for coloring or meditation.\n\n"
+            "🌌 *Personal Cosmogram* — a full energetic reading based on your Mayan birth energies.\n"
+            "Includes 5 mandalas for tuning in and drawing.\n\n"
             "💰 Price: *15 EUR*\n\n"
-            "Includes:\n"
-            "– Central Kin\n"
-            "– Feminine & Masculine energies\n"
-            "– Past and Future lines\n\n"
-            "After payment, please send a screenshot or message here confirming the method.\n\n"
-            "💳 Momo: 0901 234 567\n"
-            "🏦 Vietcombank: 123 456 789 0001"
+            "✉️ To order, message me directly: @darimacello"
         )
     bot.send_message(message.chat.id, text, parse_mode="Markdown")
 
-# --- ОБРАБОТЧИК подтверждения оплаты ---
-@bot.message_handler(func=lambda m: user_states.get(m.chat.id) == "awaiting_cosmogram_proof")
-def receive_cosmogram_proof(message):
-    username = message.from_user.username or message.from_user.first_name
-    admin_id = 838460049  # ← Укажи свой Telegram ID
-
-    # отправка чека админу
-    if message.photo:
-        photo_id = message.photo[-1].file_id
-        bot.send_photo(admin_id, photo_id, caption=f"[🌌 Космограмма] От @{username}")
-    else:
-        bot.send_message(admin_id, f"[🌌 Космограмма] от @{username}:\n{message.text}")
-
-    bot.send_message(
-        message.chat.id,
-        "📅 Теперь, пожалуйста, напиши дату рождения в формате:\n`20.06.1991 19:30 Ханой`",
-        parse_mode="Markdown"
-    )
-    user_states[message.chat.id] = "awaiting_cosmogram_birthdate"
-
-# --- ОБРАБОТЧИК даты рождения ---
-@bot.message_handler(func=lambda m: user_states.get(m.chat.id) == "awaiting_cosmogram_birthdate")
-def handle_cosmogram_birthdate(message):
-    try:
-        data = message.text.strip()
-        date_part = data.split()[0]
-        datetime.strptime(date_part, "%d.%m.%Y")  # базовая проверка
-        bot.send_message(message.chat.id, "🌟 Благодарю! Я получила данные, и скоро пришлю тебе твою космограмму ✨")
-        user_states.pop(message.chat.id, None)
-    except Exception:
-        bot.send_message(
-            message.chat.id,
-            "❌ Неверный формат. Попробуй снова: `20.06.1991 19:30 Ханой`",
-            parse_mode="Markdown"
-        )
 
 # --- ОБРАБОТЧИК "Соляр" ---
 @bot.message_handler(func=lambda m: m.text in ["🌞 Заказать Соляр", "🌞 Order Solar Return"])
-def handle_solar_order(message):
+def handle_solar_simple(message):
     lang = get_language(message.chat.id)
-    user_states[message.chat.id] = "awaiting_solar_proof"
-
     if lang == "ru":
         text = (
-            "☀️ *Личный соляр* — обзор главных тем и периодов твоего года.\n\n"
+            "☀️ *Личный соляр* — прогноз на год: главные энергии, трансформации и важные периоды.\n"
+            "В подарок — 5 мандал для сонастройки с энергиями года.\n\n"
             "💰 Стоимость: *2200 р*\n\n"
-            "Включает:\n"
-            "– Главные энергии года\n"
-            "– Темы трансформации\n"
-            "– Важные периоды\n"
-            "– В подарок 5 мандал для сонастройки с энергиями твоего личного года (+бонус)\n\n"
-            "После оплаты пришли, пожалуйста, скрин/чек сюда в чат или просто напиши, каким способом оплатила.\n\n"
-            "💳 Momo: 0901 234 567\n"
-            "🏦 Vietcombank: 123 456 789 0001"
+            "✉️ Чтобы заказать, напиши мне в Telegram: @darimacello"
         )
     else:
         text = (
-            "☀️ *Solar Return Reading* — a personal energetic forecast for your year ahead.\n\n"
+            "☀️ *Solar Return Reading* — personal themes and energies for your upcoming year.\n"
+            "Includes 5 mandalas for yearly alignment.\n\n"
             "💰 Price: *15 EUR*\n\n"
-            "Includes:\n"
-            "– Main energies of the year\n"
-            "– Transformation themes\n"
-            "– Sensitive timelines\n"
-            "– Bonus: 5 mandalas to support alignment throughout the year\n\n"
-            "After payment, please send a screenshot or message here confirming the method.\n\n"
-            "💳 Momo: 0901 234 567\n"
-            "🏦 Vietcombank: 123 456 789 0001"
+            "✉️ To order, message me directly: @darimacello"
         )
     bot.send_message(message.chat.id, text, parse_mode="Markdown")
 
-# --- ОБРАБОТЧИК подтверждения оплаты (Соляр) ---
-@bot.message_handler(func=lambda m: user_states.get(m.chat.id) == "awaiting_solar_proof")
-def receive_solar_proof(message):
-    username = message.from_user.username or message.from_user.first_name
-    admin_id = 838460049  # ← Укажи свой Telegram ID
 
-    if message.photo:
-        photo_id = message.photo[-1].file_id
-        bot.send_photo(admin_id, photo_id, caption=f"[☀️ Соляр] От @{username}")
-    else:
-        bot.send_message(admin_id, f"[☀️ Соляр] от @{username}:\n{message.text}")
-
-    bot.send_message(
-        message.chat.id,
-        "📅 Теперь, пожалуйста, напиши дату рождения в формате:\n`20.06.1991 19:30 Ханой`",
-        parse_mode="Markdown"
-    )
-    user_states[message.chat.id] = "awaiting_solar_birthdate"
-
-# --- ОБРАБОТЧИК даты рождения (Соляр) ---
-@bot.message_handler(func=lambda m: user_states.get(m.chat.id) == "awaiting_solar_birthdate")
-def handle_solar_birthdate(message):
-    try:
-        data = message.text.strip()
-        date_part = data.split()[0]
-        datetime.strptime(date_part, "%d.%m.%Y")
-        bot.send_message(message.chat.id, "☀️ Благодарю! Я получила данные, и скоро пришлю тебе твой прогноз ✨")
-        user_states.pop(message.chat.id, None)
-    except Exception:
-        bot.send_message(
-            message.chat.id,
-            "❌ Неверный формат. Попробуй снова: `20.06.1991 19:30 Ханой`",
-            parse_mode="Markdown"
-        )
-
-
-# --- ОБРАБОТЧИК "Мандала Волны" (открытый доступ) ---
+# --- ОБРАБОТЧИК "Мандала Волны" ---
 @bot.message_handler(func=lambda m: m.text in ["🎨 Мандала Волны", "🎨 Wave Mandala"])
-def handle_free_mandala(message):
+def handle_wave_mandala(message):
     lang = get_language(message.chat.id)
     if lang == "ru":
         text = (
-            "🎨 *Мандала Волны*"
-            "Каждые 13 дней ты можешь получать новую мандалу для самостоятельного рисования, которая помогает сонастроиться с текущими энергиями."
-            "Здесь ты найдёшь текущую мандалу:"
+            "🎨 *Мандала Волны*\n\n"
+            "Каждые 13 дней ты можешь получать новую мандалу для рисования и сонастройки с текущими энергиями.\n\n"
+            "Вот текущая мандала:"
         )
         caption = "🌀 Текущая мандала. Обновляется каждые 13 дней."
     else:
         text = (
-            "🎨 *Wave Mandala*"
-            "Every 13 days you can receive a new mandala to draw it yourself which will help you to align with the current wave's energy."
-            "Here is the current mandala:"
+            "🎨 *Wave Mandala*\n\n"
+            "Every 13 days you can receive a new mandala to tune into the current wave's energy.\n\n"
+            "Here is the current one:"
         )
         caption = "🌀 Current mandala. Updated every 13 days."
 
     bot.send_message(message.chat.id, text, parse_mode="Markdown")
-    with open("wave_mandalas/mandala_current.jpg", "rb") as photo:
-        bot.send_photo(message.chat.id, photo, caption=caption)
+    try:
+        with open("wave_mandalas/mandala_current.jpg", "rb") as photo:
+            bot.send_photo(message.chat.id, photo, caption=caption)
+    except FileNotFoundError:
+        bot.send_message(message.chat.id, "⚠️ Файл мандалы не найден. Пожалуйста, добавь mandala_current.jpg в папку wave_mandalas/")
     
 # --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
