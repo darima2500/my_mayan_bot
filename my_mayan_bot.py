@@ -422,6 +422,11 @@ def handle_wave_mandala(message):
     except FileNotFoundError:
         bot.send_message(message.chat.id, "⚠️ Файл мандалы не найден. Пожалуйста, добавь mandala_current.jpg в папку wave_mandalas/")
     
+# --- ЛОГИРОВАНИЕ ВСЕХ ВХОДЯЩИХ СООБЩЕНИЙ ---
+@bot.message_handler(func=lambda message: True)
+def log_all_messages(message):
+    print("📥 Поймано сообщение:", repr(message.text))
+
 # --- Настройка webhook и запуск Flask-сервера
 if __name__ == "__main__":
     bot.remove_webhook()
