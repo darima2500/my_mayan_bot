@@ -23,7 +23,6 @@ wave_info = {
             "Тень: Зависимость, страх одиночества"
         ]
     },
-    
     "description": {
     "en": (
         "This wave carries the energy of birth, beginnings, and deep trust in the very source of life.\n\n"
