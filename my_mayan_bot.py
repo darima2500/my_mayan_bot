@@ -169,19 +169,24 @@ def send_today_wave(message):
 def get_id(message):
     bot.send_message(message.chat.id, f"Your Telegram ID: {message.chat.id}")
 
-@bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About the Project"])
 def about_project(message):
     lang = get_language(message.chat.id)
     text = (
         "Этот бот — пространство для внутренней сонастройки, ежедневный ритуал вспоминания себя через живой ритм времени.\n\n"
         "Через синтез современных технологий и древних космических циклов, "
-        "этот проект приглашает тебя сонастроить твои земные и высшие аспекты в целостную систему через синхронию в пространстве времени."
+        "этот проект приглашает тебя сонастроить твои земные и высшие аспекты в целостную систему через синхронию в пространстве времени.\n\n"
+        "Все изображения волн — это оригинальные картины художницы Даримы Цыремпиловой, написанные вручную и отражающие энергию каждой фазы.\n"
+        "🌐 Подробнее: [theartofreconnection.info](https://theartofreconnection.info)\n"
+        "📩 Связь: @darimacello"
     ) if lang == "ru" else (
-        "This bot is a space for attuning to yourself through the living fabric of time.\n\n"
+        "This bot is a space for inner alignment — a daily ritual of remembering yourself through the living rhythm of time.\n\n"
         "Through the synthesis of modern technologies and ancient cosmic cycles, "
-        "this project builds a bridge between the eternal and the current, inviting you to attune your body, soul and a spirit into a wholeness once again."
+        "this project invites you to attune your earthly and higher aspects into one harmonious flow.\n\n"
+        "All wave visuals are original paintings by the artist Darima Tcyrempilova, created by hand to embody each phase’s energy.\n"
+        "🌐 More: [theartofreconnection.info](https://theartofreconnection.info)\n"
+        "📩 Contact: @darimacello"
     )
-    bot.send_message(message.chat.id, text)
+    bot.send_message(message.chat.id, text, parse_mode="Markdown")
 
     
 
