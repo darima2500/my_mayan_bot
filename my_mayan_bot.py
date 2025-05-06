@@ -374,7 +374,6 @@ def handle_solar_simple(message):
     if lang == "ru":
         text = (
             "🌞 *Личный Соляр* — твоя энергетическая карта года по майянскому календарю.\n\n"
-            "Она начинается в день, когда твой Кин рождения возвращается — и с этого момента запускается новый внутренний цикл.\n\n"
             "*Что внутри:*\n"
             "— Главный Кин года (тема твоего цикла)\n"
             "— Волна, в которой он разворачивается\n"
@@ -387,8 +386,7 @@ def handle_solar_simple(message):
         )
     else:
         text = (
-            "🌞 *Personal Solar Chart* — your energetic map of the year based on the Mayan calendar.\n\n"
-            "It begins on the day your Birth Kin returns — marking the start of a new inner cycle.\n\n"
+            "🌞 *Personal Solar Chart* — your energetic map of the current year based on the Mayan calendar.\n\n"
             "*What’s inside:*\n"
             "— Your year's guiding Kin (theme of the cycle)\n"
             "— The wave it unfolds in\n"
