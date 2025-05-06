@@ -141,6 +141,7 @@ def send_today_wave(message):
         wave_image_path = f"wave_images/wave_{wave_number}.png"
 
         # Пробуем отправить картинку волны
+        print("Путь к картинке:", wave_image_path)
         try:
             with open(wave_image_path, 'rb') as photo:
                 bot.send_photo(message.chat.id, photo)
