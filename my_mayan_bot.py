@@ -337,19 +337,36 @@ def handle_cosmogram_simple(message):
     lang = get_language(message.chat.id)
     if lang == "ru":
         text = (
-            "🌌 *Личная космограмма* — полный разбор твоей энергетической карты по майянскому календарю с расчётами твоих личных энергий.\n"
+            "🌌 *Личная космограмма* — полный разбор энергетической карты рождения по майянскому календарю.\n"
             "В подарок ты получишь 5 мандал для рисования по энергиям своей космограммы.\n\n"
-            "💰 Стоимость: *2200 р*\n\n"
-            "✉️ Чтобы заказать, просто напиши мне напрямую: @darimacello"
+            "*Что внутри:*\n"
+            "— Архетип твоего духа (Кин рождения)\n"
+            "— Способ реализации (Тон)\n"
+            "— Волна как путь и ритм твоего воплощения\n"
+            "— Мужская и женская энергия (твои активные и принимающие стороны)\n"
+            "— Энергия прошлого и будущего (две опоры души)\n"
+            "— Мандала для сонастройки\n\n"
+            "⚪ *Формат:* PDF-документ с описанием и визуалом\n\n"
+            "💌 Заказать: [@darimacello]"
         )
-    else:
+        bot.send_message(message.chat.id, text, parse_mode="Markdown")
+
+
+        )
+        else:
         text = (
-            "🌌 *Personal Cosmogram* — a full energetic reading based on your Mayan birth energies.\n"
-            "Includes 5 mandalas for tuning in and drawing.\n\n"
-            "💰 Price: *15 EUR*\n\n"
-            "✉️ To order, message me directly: @darimacello"
+            "🌌 *Personal Cosmogram* — a full energetic reading based on your Mayan birth energies.\n\n"
+            "*What’s inside:*\n"
+            "— Archetype of your spirit (Birth Kin)\n"
+            "— Mode of realization (Tone)\n"
+            "— The wave as your soul’s rhythm and path\n"
+            "— Masculine and feminine energies (your active and receptive sides)\n"
+            "— Past and future energies (soul anchors)\n"
+            "— A mandala for deep alignment\n\n"
+            "⚪ *Format:* PDF with interpretation and visual\n\n"
+            "💌 To order: [@darimacello](https://t.me/darimacello)"
         )
-    bot.send_message(message.chat.id, text, parse_mode="Markdown")
+        bot.send_message(message.chat.id, text, parse_mode="Markdown")
 
 
 # --- ОБРАБОТЧИК "Соляр" ---
@@ -358,19 +375,34 @@ def handle_solar_simple(message):
     lang = get_language(message.chat.id)
     if lang == "ru":
         text = (
-            "☀️ *Личный соляр* — прогноз на год: главные энергии, трансформации и важные периоды.\n"
-            "В подарок — 5 мандал для сонастройки с энергиями года.\n\n"
-            "💰 Стоимость: *2200 р*\n\n"
-            "✉️ Чтобы заказать, напиши мне в Telegram: @darimacello"
+            "🌞 *Личный Соляр* — твоя энергетическая карта года по майянскому календарю.\n\n"
+            "Она начинается в день, когда твой Кин рождения возвращается — и с этого момента запускается новый внутренний цикл.\n\n"
+            "*Что внутри:*\n"
+            "— Главный Кин года (тема твоего цикла)\n"
+            "— Волна, в которой он разворачивается\n"
+            "— Чувствительные волны года (моменты силы и трансформации)\n"
+            "— Мужская и женская энергия года (что активировать и что принимать)\n"
+            "— Энергия входа в год и та, которую важно отпустить\n"
+            "— Мандалы в подарок для глубокой настройки\n\n"
+            "⚪ *Формат:* PDF-документ с трактовкой и визуалом\n\n"
+            "💌 Заказать: [@darimacello](https://t.me/darimacello)"
         )
     else:
         text = (
-            "☀️ *Solar Return Reading* — personal themes and energies for your upcoming year.\n"
-            "Includes 5 mandalas for yearly alignment.\n\n"
-            "💰 Price: *15 EUR*\n\n"
-            "✉️ To order, message me directly: @darimacello"
+            "🌞 *Personal Solar Chart* — your energetic map of the year based on the Mayan calendar.\n\n"
+            "It begins on the day your Birth Kin returns — marking the start of a new inner cycle.\n\n"
+            "*What’s inside:*\n"
+            "— Your year's guiding Kin (theme of the cycle)\n"
+            "— The wave it unfolds in\n"
+            "— Sensitive waves of the year (moments of strength and transformation)\n"
+            "— Masculine and feminine energies of the year (what to activate and receive)\n"
+            "— The energy you enter the year with, and what to release\n"
+            "— Mandalas as a gift for deep attunement\n\n"
+            "⚪ *Format:* PDF with guidance and visuals\n\n"
+            "💌 To order: [@darimacello](https://t.me/darimacello)"
         )
     bot.send_message(message.chat.id, text, parse_mode="Markdown")
+
 
 
 # --- ОБРАБОТЧИК "Мандала Волны" ---
