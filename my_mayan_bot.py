@@ -351,7 +351,7 @@ def handle_cosmogram_simple(message):
         )
         bot.send_message(message.chat.id, text, parse_mode="Markdown")
 
-        else:
+    else:
         text = (
             "🌌 *Personal Cosmogram* — a full energetic reading based on your Mayan birth energies.\n\n"
             "*What’s inside:*\n"
