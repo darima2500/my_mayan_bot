@@ -23,20 +23,22 @@ wave_info = {
             "Тень: Зависимость, страх одиночества"
         ]
     },
+    
     "description": {
-        "en": (
-            "This wave carries the energy of beginnings and deep trust in the source of life.\n\n"
-            "The Red Dragon invites you to reconnect with your inner origin — to rest, be held, and allow yourself to be supported.\n"
-            "Let go of the need to control, and return to the natural flow of receiving.\n\n"
-            "From this place, true creativity is born."
-        ),
-        "ru": (
-            "Эта волна несёт энергию начала и глубокого доверия к жизни.\n\n"
-            "Красный Дракон приглашает вернуться к своему истоку — позволить себе быть, отдохнуть, принять поддержку.\n"
-            "Отпуская контроль, ты возвращаешься к естественному потоку.\n\n"
-            "Из этого состояния рождается настоящее творчество."
-        )
-    },
+    "en": (
+        "This wave carries the energy of birth, beginnings, and deep trust in the very source of life.\n\n"
+        "The Red Dragon invites you to return to your origin — the place where you were held without conditions.\n"
+        "This is a time for rest, nourishment, and being. Let yourself soften. Let go of control, and remember how it feels to be cradled by Life itself.\n\n"
+        "From this softness, true creativity is born — not from effort, but from deep trust and embodied connection."
+    ),
+    "ru": (
+        "Эта волна несёт энергию начала, рождения и глубокого доверия к самому источнику жизни.\n\n"
+        "Красный Дракон приглашает тебя вернуться к точке своего происхождения — туда, где ты был(а) принят(а) без условий.\n"
+        "Это время отдыха, укутанности, питания. Позволь себе просто быть, отпустить контроль и вспомнить, каково это — быть на руках у Жизни.\n\n"
+        "Из этой мягкости рождается настоящее творчество — не из усилия, а из глубинного доверия и соединённости с телом."
+    )
+}
+
     "archetype": {
         "en": "Wave Archetype: The Cosmic Mother, the Nourisher of Life.",
         "ru": "Архетип Волны: Космическая Мать, Питающая Жизнь."
