@@ -147,12 +147,12 @@ tones_data = {
         "ru": {
             "name": "Космический Тон",
             "keywords": "завершение, переход",
-            "description": "Последний день волны. Завершается цикл, но не как конец, а как выход за пределы. Это момент отпускания контроля и открытия следующей спирали — с новым уровнем восприятия. Хороший момент для перехода в следующее."
+            "description": "Последний день волны. Завершается цикл, но не как конец, а как выход за пределы. Это момент отпускания контроля для выхода на новый уровень восприятия. Время интегрировать процессы всей волны для открытия следующей спирали."
         },
         "en": {
             "name": "Cosmic Tone",
             "keywords": "completion, transition",
-            "description": "The final day of the wave. A cycle ends — not as closure, but as a leap beyond. A moment to release control and open to the next spiral. A potent time for entering something new."
+            "description": "The final day of the wave. A cycle ends — not as closure, but as a leap beyond. A moment to release control and open to the next spiral. A potent time to expand your consciousness."
         }
     }
 }
