@@ -165,7 +165,7 @@ def send_today_wave(message):
         bot.send_message(message.chat.id, "❌ Wave not found.")
 
 
-@bot.message_handler(func=lambda message: message.text in ["📖 О проекте", "📖 About"])
+@bot.message_handler(func=lambda m: "About the Project" in m.text or "О проекте" in m.text) 
 def about_project(message):
     lang = get_language(message.chat.id)
     text = (
