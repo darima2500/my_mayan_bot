@@ -419,7 +419,7 @@ def handle_wave_mandala(message):
         text = (
             "🎨 *Wave Mandala*\n\n"
             "Every 13 days you can receive a new mandala to tune into the current wave's energy.\n\n"
-            "Here is the current one:"
+            "Just print it and connect the dotes on the mandala. Here is the current one:"
         )
         caption = "🌀 Current mandala. Updated every 13 days."
 
