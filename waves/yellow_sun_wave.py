@@ -1,4 +1,4 @@
-wave_info = {
+gwave_info = {
     "name": {
         "en": "Yellow Sun Wave",
         "ru": "Волна Жёлтого Солнца"
@@ -33,13 +33,13 @@ wave_info = {
             "This wave carries the energies of enlightenment, unconditional love, divine play, and deep connection with the Source and the Ancestors.\n\n"
             "The Yellow Sun invites you to remember the radiant spark within you — the sacred light that connects you to all life.\n"
             "It is a time to celebrate your wholeness, to embody love without conditions, and to weave beauty, poetry, and joy into existence.\n\n"
-            "The Sun teaches: true illumination is living in the grace of being — humbly embracing the dance of life with the heart of a Creator."
+            "The Sun teaches: sometimes it is neccessary to face your darkness and bring it into a light to fully embrace the wholeness of life."
         ),
         "ru": (
             "Эта волна включает мошные энергии Света, любви, не обусловленной детерминизмом, божественной игры и глубинной связи с Истоком и Предками.\n\n"
             "Жёлтое Солнце открывает пространство полной сдачи и доверия, предлагает вспомнить сияющую искру внутри — священный свет, который соединяет тебя со всей жизнью.\n"
             "Это время празднования целостности, воплощения любви без условий и сотворения красоты, поэзии и радости, через соединение со своим внутренним ребенком.\n\n"
-            "Солнце учит: истинное просветление — это жизнь в благодати бытия, объединяющая земное и небесное, празднование истинной целостности жизни."
+            "Солнце учит: истинное просветление — это объем энергии жизни, объединяющий земное и небесное."
         )
     },
     "archetype": {
