@@ -1,4 +1,4 @@
-gwave_info = {
+wave_info = {
     "name": {
         "en": "Yellow Sun Wave",
         "ru": "Волна Жёлтого Солнца"
