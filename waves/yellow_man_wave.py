@@ -11,30 +11,30 @@ wave_info = {
         "en": [
             "Free will and soul path",
             "Sacred human potential",
-            "Silent guidance and service",
-            "Integrity and humility",
+            "Guidance and service",
+            "Ability to create your own reality",
             "Shadow: Loneliness, impatience"
         ],
         "ru": [
             "Свободная воля и путь души",
-            "Священный потенциал человечества",
-            "Тихое наставничество и служение",
-            "Целостность и смирение",
-            "Тень: Одиночество, нетерпение"
+            "Высший потенциал человечества",
+            "Наставничество и служение",
+            "Умение творить свою реальность",
+            "Тень: Одиночество, нетерпение, потеря доверия к собственному пути"
         ]
     },
     "description": {
         "en": (
             "This wave carries the energies of free will, soul path, and sacred human potential.\n\n"
-            "The Yellow Man invites you to walk the road of life with humility and grace — to recognize your own gifts and honor the journey of others.\n"
-            "It is a time to align with your deepest soul purpose, to act from integrity, and to serve quietly but powerfully in weaving the great tapestry of life.\n\n"
-            "The Man teaches: true evolution is not a race, but the unfolding of your unique song in harmony with the something larger."
+            "The Yellow Man teaches us to walk through life with dignity - realizing the power of our ability to create this reality by making our choices every day.\n"
+            "This is a time of alignment with the deepest intention of your soul, and subsequently the ability to live and make choices based on this state of uncompromising integrity of the Body, Soul and Spirit.\n\n"
+            "The yellow man is the archetype of the highest level of awareness, as well as the ability to interact with the system."
         ),
         "ru": (
-            "Эта волна несёт энергии свободной воли, пути души и священного потенциала человечества.\n\n"
-            "Жёлтый Человек приглашает идти по дороге жизни с кротостью и достоинством — видеть собственные дары и почитать путь других.\n"
-            "Это время согласования с глубочайшим намерением своей души, действия из внутренней честности и тихого, но мощного служения.\n\n"
-            "Человек учит: истинная эволюция — это не гонка, а раскрытие собственной уникальности в согласии с  жизнью."
+            "Эта волна несёт энергии свободной воли, созидания своей реальности и скрытого потенциала человека.\n\n"
+            "Жёлтый Человек учит идти по жизни с достоинством — осознавая силу своего умения созидать эту реальность, делая свои выборы каждый день.\n"
+            "Это время согласования с глубочайшим намерением своей души, и впоследствии умение жить и делать выборы, исходя из этого состояния бескомпромиссной целостности Тела Души и Духа.\n\n"
+            "Желтый человек это архетип наивысшего уровня осознанности, а также умения взаимодействовать с системой."
         )
     },
     "archetype": {
@@ -48,4 +48,19 @@ wave_info = {
 }
 
 def get_wave_message(lang):
-    return wave_info["description"][lang]
+    name = wave_info["name"][lang]
+    period = wave_info["period"][lang]
+    themes = wave_info["core_themes"][lang]
+    description = wave_info["description"][lang]
+
+    themes_intro = "Основные темы:" if lang == "ru" else "Core themes:"
+    themes_text = "\n".join(f"• {theme}" for theme in themes)
+
+    return (
+        f"🌊 *{name}*\n"
+        f"{period}\n\n"
+        f"*{themes_intro}*\n"
+        f"{themes_text}\n\n"
+        f"{description}"
+    )
+
