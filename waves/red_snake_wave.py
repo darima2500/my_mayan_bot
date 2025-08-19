@@ -25,16 +25,16 @@ wave_info = {
     },
     "description": {
         "en": (
-            "This wave carries the energies of life force, instinct, and the wisdom of the body.\n\n"
-            "The Red Snake invites you to reconnect with your senses — to trust your body's signals, to honor its intelligence, and to move with natural power.\n"
-            "It is a time to feel what is real, to ground into your own vitality, and to live from deeper instincts.\n\n"
-            "The Snake reminds: true strength comes from being fully alive in your body, without losing yourself in appearances."
+            "These 13 days under the Red Serpent invite us to see life through the lens of the body, to expand through deep trust in our instincts. It’s a time to reconnect with raw, primal wisdom—the signals that pulse through every breath and movement.\n\n"
+            "The Red Serpent symbolizes transformation, life force (kundalini), and rebirth. Like a snake shedding its skin, we too can release what no longer serves us.\n"
+            "The Serpent is also the kundalini fire coiled at the spine’s base. Its ascent represents enlightenment through embodiment—we cannot rise spiritually without grounding in our animal nature.\n\n"
+            "The Snake reminds: Feel what’s truly alive—follow impulses without judgment, Trust the body—it knows when to rest and when to act, Embrace instincts—not as chaos, but as ancient wisdom."
         ),
         "ru": (
-            "Эта волна несёт энергии жизненной силы, инстинктов и мудрости тела.\n\n"
-            "Красная Змея приглашает вернуться к своим ощущениям — доверять сигналам тела, уважать его знание и двигаться с естественной силой.\n"
-            "Это время чувствовать то, что действительно живо, укореняться в своей жизненной энергии и жить ближе к своим настоящим инстинктам.\n\n"
-            "Змея напоминает: настоящая сила рождается из полного проживания тела, без потери связи с внутренним духом."
+            "Эти 13 дней под знаком Красной Змеи дарят нам уникальную возможность — взглянуть на жизнь через призму тела, ощутить подлинное расширение через доверие к своим ощущениям.\n\n"
+            "Красная Змея — это символ трансформации, инстинкта и пробуждённой жизненной силы (кундалини). Во многих традициях змей считается священным существом, воплощающим циклы смерти и возрождения. Подобно тому, как змея сбрасывает кожу, мы тоже можем отпустить всё отжившее, чтобы освободить место для нового. Но истинное перерождение возможно только через глубокий транс, через погружение в изменённые состояния сознания, где стираются границы между телом и духом.\n"
+            "Змей — это не только символ физического обновления, но и проводник энергии кундалини, спящей у основания позвоночника. Его путь вверх, к коронной чакре, символизирует просветление, достижимое только через полное воплощение. Мы не можем вознестись духом, не пройдя через земное, не приняв свою животную природу.\n\n"
+            "Красная Змея учит: Чувствовать то, что действительно живо — не игнорировать импульсы, а следовать им, Доверять телу — оно знает, когда нужно замедлиться, а когда — действовать."
         )
     },
     "archetype": {
@@ -48,4 +48,19 @@ wave_info = {
 }
 
 def get_wave_message(lang):
-    return wave_info["description"][lang]
+    name = wave_info["name"][lang]
+    period = wave_info["period"][lang]
+    themes = wave_info["core_themes"][lang]
+    description = wave_info["description"][lang]
+
+    themes_intro = "Основные темы:" if lang == "ru" else "Core themes:"
+    themes_text = "\n".join(f"• {theme}" for theme in themes)
+
+    return (
+        f"🌊 *{name}*\n"
+        f"{period}\n\n"
+        f"*{themes_intro}*\n"
+        f"{themes_text}\n\n"
+        f"{description}"
+    )
+
