@@ -366,8 +366,10 @@ def handle_cosmogram_simple(message):
             "— Masculine and feminine energies (your active and receptive sides)\n"
             "— Past and future energies (soul anchors)\n"
             "— A mandala for deep alignment\n\n"
-            "⚪ *Format:* PDF with interpretation and visual\n\n"
-            "💌 To order: [@darimacello](https://t.me/darimacello)"
+            "⚪ Format:📄 Self-Guided Package** — Receive a structured PDF document with a detailed description and visuals for you to study at your own pace.\n"
+            "🎧 Deep Dive Package** — PDF + detailed audio explanations. I will guide you through all the key points with my voice.\n"
+            "🤝 Personal 1-on-1 Session** — A personal call with me for a detailed discussion, analysis of your specific tasks, and Q&A.\n\n"
+            "💌 To order any format or ask questions: [@darimacello](https://t.me/darimacello)"
         )
         bot.send_message(message.chat.id, text, parse_mode="Markdown")
 
@@ -386,8 +388,10 @@ def handle_solar_simple(message):
             "— Мужская и женская энергия года (что активировать и что принимать)\n"
             "— Энергия входа в год и та, которую важно отпустить\n"
             "— Мандалы в подарок для глубокой настройки\n\n"
-            "⚪ *Формат:* PDF-документ с трактовкой и визуалом\n\n"
-            "💌 Заказать: [@darimacello](https://t.me/darimacello)"
+            "⚪ *Формат:* 📄 Самостоятельный разбор — Получите структурированный PDF-документ с описанием и визуалом для изучения в удобном темпе.\n"
+            "🎧 Глубокое погружение** — PDF + подробные аудио-пояснения. Я голосом проведу вас по всем ключевым моментам.\n"
+            "🤝 Персональная работа** — Личный созвон со мной для детального обсуждения, разбора ваших задач и ответов на вопросы.\n\n"
+            "💌 Заказать любой из форматов или задать вопросы: [@darimacello](https://t.me/darimacello)"
         )
     else:
         text = (
@@ -399,8 +403,10 @@ def handle_solar_simple(message):
             "— Masculine and feminine energies of the year (what to activate and receive)\n"
             "— The energy you enter the year with, and what to release\n"
             "— Mandalas as a gift for deep attunement\n\n"
-            "⚪ *Format:* PDF with guidance and visuals\n\n"
-            "💌 To order: [@darimacello](https://t.me/darimacello)"
+            "⚪ Format:📄 Self-Guided Package** — Receive a structured PDF document with a detailed description and visuals for you to study at your own pace.\n"
+            "🎧 Deep Dive Package** — PDF + detailed audio explanations. I will guide you through all the key points with my voice.\n"
+            "🤝 Personal 1-on-1 Session** — A personal call with me for a detailed discussion, analysis of your specific tasks, and Q&A.\n\n"
+            "💌 To order any format or ask questions: [@darimacello](https://t.me/darimacello)"
         )
     bot.send_message(message.chat.id, text, parse_mode="Markdown")
 
@@ -442,4 +448,5 @@ if __name__ == "__main__":
     bot.remove_webhook()
     bot.set_webhook(url=f"{WEBHOOK_URL}/{TOKEN}", allowed_updates=["message"])
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
