@@ -28,13 +28,13 @@ wave_info = {
             "This wave carries the energies of truth, clarity, and the power of inner liberation.\n\n"
             "The White Mirror invites you to see yourself and the world without distortion — to recognize illusions, to release false images, and to stand in your own simple truth.\n"
             "It is a time for deep reflection, honest confrontation, and clear choices that align with what is real.\n\n"
-            "The Mirror teaches: true freedom comes from within, through the courage to face what is, without clinging to illusions."
+            "True freedom comes from within, through the courage to face what is, without clinging to illusions."
         ),
         "ru": (
-            "Эта волна несёт энергии истины, ясности и силы внутреннего освобождения.\n\n"
+            "На этой волне будут подниматься энергии истины, ясности и силы внутреннего освобождения.\n\n"
             "Белое Зеркало приглашает видеть себя и мир без искажений — распознавать иллюзии, отпускать ложные образы и стоять в своей простой истине.\n"
             "Это время глубокого отражения, честной встречи с собой и ясного выбора, который соотносится с тем, что реально.\n\n"
-            "Зеркало учит: настоящая свобода рождается внутри — через смелость встретиться с тем, что есть, без попыток удерживать иллюзии."
+            "Настоящая свобода рождается внутри — через смелость встретиться с тем, что есть, без попыток удерживать иллюзии."
         )
     },
     "archetype": {
@@ -48,4 +48,19 @@ wave_info = {
 }
 
 def get_wave_message(lang):
-    return wave_info["description"][lang]
+    name = wave_info["name"][lang]
+    period = wave_info["period"][lang]
+    themes = wave_info["core_themes"][lang]
+    description = wave_info["description"][lang]
+
+    themes_intro = "Основные темы:" if lang == "ru" else "Core themes:"
+    themes_text = "\n".join(f"• {theme}" for theme in themes)
+
+    return (
+        f"🌊 *{name}*\n"
+        f"{period}\n\n"
+        f"*{themes_intro}*\n"
+        f"{themes_text}\n\n"
+        f"{description}"
+    ) 
+
