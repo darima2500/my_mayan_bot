@@ -48,4 +48,21 @@ wave_info = {
 }
 
 def get_wave_message(lang):
-    return wave_info["description"][lang]
+    name = wave_info["name"][lang]
+    period = wave_info["period"][lang]
+    themes = wave_info["core_themes"][lang]
+    description = wave_info["description"][lang]
+
+
+    themes_intro = "Основные темы:" if lang == "ru" else "Core themes:"
+    themes_text = "\n".join(f"• {theme}" for theme in themes)
+
+
+    return (
+        f"🌊 *{name}*\n"
+        f"{period}\n\n"
+        f"*{themes_intro}*\n"
+        f"{themes_text}\n\n"
+        f"{description}"
+    )
+
