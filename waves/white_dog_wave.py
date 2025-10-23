@@ -25,16 +25,16 @@ wave_info = {
     },
     "description": {
         "en": (
-            "This wave calls you back to the heart — to loyalty, authenticity, and true connection.\n\n"
-            "The White Dog teaches that love is not attachment, but devotion to truth, integrity, and the soul's journey.\n"
-            "It is a time to honor the invisible bonds that connect all beings, to walk with honesty, and to protect what is sacred.\n\n"
+            "This wave calls you back to the heart center — to loyalty, authenticity, and true connection.\n\n"
+            "During these 13 days, the space reminds us that love is born in contact, intimacy, and in being true to one's soul.\n"
+            "It's time to reconsider your thoughts and ideas about relationships, friendship, and attachment. What is true there, and where it's time to let go of your fears and emerge from isolation. \n\n"
             "When loyalty is rooted in the heart, it becomes a guiding light through all transformations."
         ),
         "ru": (
-            "Эта волна возвращает к сердцу — к верности, подлинности и настоящей связи.\n\n"
-            "Белая Собака учит, что любовь — это не привязанность, а преданность истине, целостности и пути души.\n"
-            "Это время почитать невидимые узы, связывающие всех существ, идти с честностью и защищать то, что свято.\n\n"
-            "Когда верность укоренена в сердце, она становится путеводным светом сквозь любые трансформации."
+            "Эта волна возвращает к сердцу — к верности, подлинности и контакту в своей правде.\n\n"
+            "В эти 13 дней пространство напоминает нам, что любовь рождается в контакте, в близости и в верности своей душе.\n"
+            "Время пересмотреть свои мысли и идеи, касающиеся отношений, дружбы и привязанности. Что там истинно, а где пора уже отпустить свои страхи и выйти из изоляции.\n\n"
+            "Когда верность укоренена внутри, она становится путеводным светом сквозь любые внешние трансформации и проверки."
         )
     },
     "archetype": {
@@ -48,4 +48,19 @@ wave_info = {
 }
 
 def get_wave_message(lang):
-    return wave_info["description"][lang]
+    name = wave_info["name"][lang]
+    period = wave_info["period"][lang]
+    themes = wave_info["core_themes"][lang]
+    description = wave_info["description"][lang]
+
+    themes_intro = "Основные темы:" if lang == "ru" else "Core themes:"
+    themes_text = "\n".join(f"• {theme}" for theme in themes)
+
+    return (
+        f"🌊 *{name}*\n"
+        f"{period}\n\n"
+        f"*{themes_intro}*\n"
+        f"{themes_text}\n\n"
+        f"{description}"
+    )
+
