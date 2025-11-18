@@ -10,7 +10,7 @@ wave_info = {
     "core_themes": {
         "en": [
             "Inner courage and authenticity",
-            "Facing challenges with wisdom",
+            "Facing challenges",
             "Walking the path of truth",
             "Asking the deeper questions",
             "Shadow: Stubbornness, conflict for its own sake, fear of true inquiry"
@@ -33,7 +33,7 @@ wave_info = {
         "ru": (
             "Эта волна призывает идти смелым путём истины.\n\n"
             "Жёлтый Воин учит, что истинная храбрость рождается не в сражениях снаружи, а в решимости жить в полном согласии с голосом своей души.\n"
-            "Это время встретиться со страхами, задавать глубокие вопросы и действовать с мудростью и сердцем.\n\n"
+            "Это время встретиться со страхами, задавать глубокие вопросы и действовать в согласии со своим внутренним голосом.\n\n"
             "Когда встречаются смелость и ясность, путь души начинает открываться шаг за шагом."
         )
     },
@@ -48,4 +48,21 @@ wave_info = {
 }
 
 def get_wave_message(lang):
-    return wave_info["description"][lang]
+    name = wave_info["name"][lang]
+    period = wave_info["period"][lang]
+    themes = wave_info["core_themes"][lang]
+    description = wave_info["description"][lang]
+
+
+    themes_intro = "Основные темы:" if lang == "ru" else "Core themes:"
+    themes_text = "\n".join(f"• {theme}" for theme in themes)
+
+
+    return (
+        f"🌊 *{name}*\n"
+        f"{period}\n\n"
+        f"*{themes_intro}*\n"
+        f"{themes_text}\n\n"
+        f"{description}"
+    )
+
