@@ -1,7 +1,7 @@
 wave_info = {
     "name": {
-        "en": "White Wind Wave",
-        "ru": "Волна Белого Ветра"
+        "en": "White Wind Wave. Ik",
+        "ru": "Волна Белого Ветра. Ик"
     },
     "period": {
         "en": "December 15 — December 27, 2025",
@@ -9,32 +9,31 @@ wave_info = {
     },
     "core_themes": {
         "en": [
-            "Spirit and breath",
-            "Truthful communication",
+            "Spirit",
+            "Clean communication",
             "Movement and change",
-            "Integration of polarities",
+            "Respiratory system",
             "Shadow: Outbursts of anger, loss of centeredness"
         ],
         "ru": [
-            "Дух и дыхание",
-            "Истинное общение",
+            "Дух",
+            "Чистая коммуникация",
             "Движение и перемены",
-            "Интеграция противоположностей",
+            "Дыхательная система",
             "Тень: Вспышки гнева, потеря внутреннего центра"
         ]
     },
     "description": {
         "en": (
-            "This wave invites you to become a vessel for Spirit — to speak, to move, and to breathe with clarity and truth.\n\n"
-            "The White Wind teaches that true communication flows from an open and pure heart, carrying the essence of spirit into the world.\n"
-            "It is a time to listen deeply, to express authentically, and to learn to connect with others from your true essence.\n\n"
-            "When breath, word, and spirit align, life becomes a dance of pure connection."
+            "Wave of the White Wind will bring forward themes of clear communication and the ability to build true dialogue with one another, inviting more and more connection on the level of Spirit.\n\n"
+            "This is a time to catch ideas on the fly — to return to impulses that were long postponed, to activate creative realizations, and to bring into reality what once seemed impossible. White Wind carries a masculine spiritual energy — the energy of expressing ideas with ease and moving through changes that may feel extremely fast.\n"
+            "Pay attention to your breathing. Over these 13 days, it will help you learn how to navigate and shape your reality more consciously.\n\n"
         ),
         "ru": (
-            "Эта волна приглашает стать сосудом для Духа — говорить, двигаться и дышать с ясностью и истиной.\n\n"
-            "Белый Ветер учит, что подлинное общение рождается из открытого и чистого сердца, неся в мир суть духа.\n"
-            "Это время глубоко слушать, искренне выражаться и учиться коммуницировать, оставаясь в своей аутентичности.\n\n"
-            "Когда дыхание, слово и дух соединяются, жизнь становится чистым танцем индивидуальностей, осознающих свое единство."
+            "«БЕЛЫЙ ВЕТЕР» (ИК) – это 2-ой знак календаря майя, его ключевые слова: Дух. Дыхание. Коммуникации и связи. Энергия: Сила Духа.\n\n"
+            "Волна Белого Ветра поднимет темы выстраивания чистых коммуникаций, умения выстраивать диалог друг с другом, привнося в жизнь все больше контакте на уровне Духа.\n"
+            "Это время схватывания на лету многих идей, которые откладывались в долгий ящик, реализаций творческих импульсов и проявления в реальность того, что раньше казалось невозможным.\n\n"
+            "Велый ветер это мужская энергия Духа, реализации своих идей в легкости и перемен, которые могут показаться экстремально быстрыми. Следите за своим дыханием, оно поможет научиться управлять своей реальностью в эти 13 дней."
         )
     },
     "archetype": {
@@ -63,3 +62,4 @@ def get_wave_message(lang):
         f"{themes_text}\n\n"
         f"{description}"
     )
+
