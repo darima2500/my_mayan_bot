@@ -25,16 +25,16 @@ wave_info = {
     },
     "description": {
         "en": (
-            "This wave invites you to rise above — to see from the perspective of Spirit, where clarity and vision unfold.\n\n"
+            "This wave invites you to step slightly back from everyday bustle and look at what is happening from a wider perspective — not from tension or control, but from a state of inner clarity. When you stop getting stuck in details, it becomes easier to see what truly matters right now and what merely consumes your attention.\n\n"
             "The Blue Eagle teaches that true success and healing come from understanding the bigger picture and acting from this perspective.\n"
             "It is a time to align with collective dreams, to support without rescuing, and to let your sight guide your service.\n\n"
-            "When you soar with clear vision, you don't need to stop yourself because of the slow wheel of density."
+            "When you hold this inner perspective, everyday tasks no longer feel like obstacles. They naturally integrate into a wider path and stop slowing you down, because you understand why you take each step and what you are moving toward."
         ),
         "ru": (
-            "Эта волна приглашает подняться выше — увидеть мир с перспективы Духа, где раскрываются ясность и видение.\n\n"
+            "Эта волна предлагает немного отступить назад от повседневной суеты и посмотреть на происходящее шире — не из точки напряжения и контроля, а из состояния внутренней ясности. Когда ты перестаёшь застревать в деталях, становится видно, что именно сейчас действительно важно, а что лишь забирает внимание.\n\n"
             "Голубой Орёл учит, что настоящий успех и исцеление приходят через понимание целостной картины и действий, исходящих из этого понимания.\n"
             "Это время настроиться на коллективные мечты, поддерживать, не спасая, и позволить своему видению направлять тебя.\n\n"
-            "Когда ты паришь с ясным зрением, тебе больше не надо тормозить из-за мелочей рутины."
+            "Когда у тебя есть эта внутренняя перспектива, повседневные задачи перестают выглядеть как препятствия. Они просто встраиваются в более широкий путь и больше не замедляют движение, потому что ты понимаешь, зачем и ради чего делаешь каждый шаг."
         )
     },
     "archetype": {
@@ -65,4 +65,5 @@ def get_wave_message(lang):
         f"{themes_text}\n\n"
         f"{description}"
     )
+
 
