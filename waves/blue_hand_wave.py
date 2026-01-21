@@ -4,8 +4,8 @@ wave_info = {
         "ru": "Волна Голубой Руки"
     },
     "period": {
-        "en": "June 3 — June 15, 2025",
-        "ru": "3 июня — 15 июня 2025"
+        "en": "February 18 — March 2 2026",
+        "ru": "18 Февраля — 2 Марта 2026"
     },
 
 "core_themes": {
@@ -70,3 +70,4 @@ def get_wave_message(lang):
         f"{themes_text}\n\n"
         f"{description}"
     )
+
