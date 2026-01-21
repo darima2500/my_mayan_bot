@@ -4,8 +4,8 @@ wave_info = {
         "ru": "Волна Белого Ягуара"
     },
     "period": {
-        "en": "May 21 — June 2, 2025",
-        "ru": "21 мая — 2 июня 2025"
+        "en": "February 05 — February 17, 2026",
+        "ru": "05 Февраля — 17 Февраля 2026"
     },
 "core_themes": {
     "en": [
@@ -72,3 +72,4 @@ def get_wave_message(lang):
         f"{themes_text}\n\n"
         f"{description}"
     )
+
