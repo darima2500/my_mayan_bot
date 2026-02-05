@@ -14,7 +14,7 @@ wave_info = {
         "Inner Alignment",
         "Spiritual healing",
         "Astral journeys",
-        "Sacred power and wisdom of Earth",
+        "Shamanism",
         "Walking between worlds",
         "Shadow: Illusions, distrust of inner knowing"
     ],
@@ -24,7 +24,7 @@ wave_info = {
         "Внутренняя Сонастройка",
         "Духовное исцеление",
         "Астральные путешествия",
-        "Священная сила и мудрость Земли",
+        "Шаманизм",
         "Путь между мирами",
         "Тень: Иллюзии, недоверие внутреннему знанию"
     ]
@@ -34,16 +34,16 @@ wave_info = {
 
     "description": {
         "en": (
-            "This wave carries the energies of intuition, sacred power, and deep connection with the Earth.\n\n"
+            "This wave of a White Jaguar is about the energies of intuition and deep connection with the Earth.\n\n"
             "The White Jaguar invites you to walk between worlds — to listen to the silent teachings of nature, to heal distortions within, and to reclaim the pure force of life.\n\n"
-            "It is a time to awaken your inner Seer and Healer, to walk with grace and reverence for all living beings.\n"
+            "It is a time to awaken your inner Shaman and Healer, to walk in between different realms, yet having grace and reverence for all living beings.\n"
             "Yet it also asks for humility — for great power without heart may turn into illusion or misuse."
         ),
         "ru": (
-            "Эта волна несёт энергии интуиции, священной силы и глубокой связи с Землёй.\n\n"
-            "Белый Ягуар приглашает идти между мирами — слушать безмолвные наставления природы, исцелять внутренние искажения и пробуждать чистую силу жизни внутри себя.\n\n"
-            "Это время пробуждения внутреннего Провидца и Целителя, путь через уважение ко всему живому.\n"
-            "Но также оно напоминает о смирении: великая сила без сердца может превратиться в иллюзию или злоупотребление."
+            "На этой волне есть возможность настроить свое тонкое видение через соединение с жнергией Земли, граница между мирами может стать тонкой и можно увидеть то, что ранее было скрыто обычному глазу.\n\n"
+            "Белый Ягуар также называется Белый Волшебник, тот который обладает бОльшим набором инструментов познания этого мира.\n\n"
+            "Это время пробуждения внутреннего Шамана и Целителя, путь через уважение ко всему живому.\n"
+            "Но также оно напоминает о смирении: одна только сила без сердца может превратиться в искажение или злоупотребление."
         )
     },
     "archetype": {
@@ -72,4 +72,5 @@ def get_wave_message(lang):
         f"{themes_text}\n\n"
         f"{description}"
     )
+
 
