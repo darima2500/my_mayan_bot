@@ -4,8 +4,8 @@ wave_info = {
         "ru": "Волна Голубой Обезьяны"
     },
     "period": {
-        "en": "September 15 — September 27, 2025",
-        "ru": "15 сентября — 27 сентября 2025"
+        "en": "June 2 - June 14, 2026",
+        "ru": "2 Июня — 14 Июня 2026"
     },
     "core_themes": {
         "en": [
