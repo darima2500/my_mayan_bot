@@ -4,8 +4,8 @@ wave_info = {
         "ru": "Волна Жёлтого Семени"
     },
     "period": {
-        "en": "September 28 — October 10, 2025",
-        "ru": "28 сентября — 10 октября 2025"
+        "en": "June 15 — June 27, 2026",
+        "ru": "15 Июня — 27 Июня 2026"
     },
     "core_themes": {
         "en": [
@@ -17,24 +17,24 @@ wave_info = {
         ],
         "ru": [
             "Рост и потенциал",
-            "Осознанное взращивание",
-            "Создание значимых связей",
-            "Созревание внутренних даров",
-            "Тень: Чрезмерное руководство, нетерпение"
+            "Терпение",
+            "Созидание",
+            "Форма и материализация",
+            "Тень: Чрезмерный контроль, нетерпение"
         ]
     },
     "description": {
         "en": (
-            "This wave carries the energies of growth, potential, and conscious cultivation.\n\n"
-            "The Yellow Seed invites you to plant yourself where you can thrive — to nourish your dreams patiently and to trust the natural pace of growth.\n"
-            "It is a time to strengthen your roots, build meaningful connections, and allow your unique gifts to ripen.\n\n"
-            "The Seed reminds: true flourishing happens not by forcing, but by creating the right conditions for life to unfold."
+            "We are entering a period where things begin to fall into place on their own. It is a time when your past efforts finally bear fruit, and everything starts to move without unnecessary pressure.\n\n"
+            "The Over the next 13 days, it is important not to force the situation or scramble where the process is already underway. Just do what is necessary and let events take their course. True results now come not from pushing hard, but from creating the conditions where everything unfolds naturally and on time.\n"
+            "Stay grounded in what you have already started and allow your projects to simply mature.\n\n"
+            "This is a period of materialization: every step must be concrete, and the work must be methodical. This is not a time for abstractions; it is a time for creation, where through persistence and attention, your intentions gain structure and substance."
         ),
         "ru": (
-            "Эта волна несёт энергии роста, потенциала и сонастроенности с естественным темпом вещей и событий вокруг.\n\n"
-            "Жёлтое Семя приглашает укорениться там, где ты можешь процветать — питать свои мечты с терпением и доверять естественному развитию.\n"
-            "Это время укреплять свои корни, строить значимые связи и позволять своим дарам созревать.\n\n"
-            "Семя напоминает: настоящее процветание рождается не через искусственное усилие, а через создание условий для естественного раскрытия жизни."
+            "Сейчас идет период, когда дела начинают складываться сами собой. Это время, когда твои прошлые усилия наконец-то дают всходы, и всё начинает работать без лишнего давления.\n\n"
+            "В ближайшие 13 дней важно не пытаться «подгонять» ситуацию и не суетиться там, где процесс уже пошел. Просто делай то, что нужно, и дай событиям идти своим чередом. Истинный результат сейчас дает не избыток сил, вложенных в «проталкивание» дела, а создание условий, в которых всё раскрывается естественно и вовремя.\n"
+            "Укрепись в том, что ты уже начала, и дай своим проектам просто созреть.\n\n"
+            "Это период материализации: когда каждый шаг должен быть конкретным, а работа — методичной. Сейчас не время для абстракций, сейчас время для созидания, где через упорство и внимательность задуманное обретает структуру и вес."
         )
     },
     "archetype": {
