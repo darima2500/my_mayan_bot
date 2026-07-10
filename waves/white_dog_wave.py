@@ -4,8 +4,8 @@ wave_info = {
         "ru": "Волна Белой Собаки"
     },
     "period": {
-        "en": "October 24 — November 5, 2025",
-        "ru": "24 октября — 5 ноября 2025"
+        "en": "July 11 — July 23, 2026",
+        "ru": "11 Июля — 23 Июля 2026"
     },
     "core_themes": {
         "en": [
