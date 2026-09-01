@@ -25,7 +25,7 @@ wave_info = {
     },
     "description": {
         "en": (
-            "WHITE WIND" is the 2nd sign of the Maya calendar. Its keywords are Spirit, Breath, Communication, and Connections. Energy: Power of Spirit.\n\n"
+            """" "WHITE WIND" (IK) is the 2nd sign of the Maya calendar. Its keywords are Spirit, Breath, Communication, and Connections. Energy: Power of Spirit.\n\n"
             "The Wave of the White Wind will bring up topics of pure communication and the ability to build dialogue with one another, bringing more contact at the Spirit level into life.\n"
             "This is a time for catching on the fly many ideas that were put on the back burner, realizing creative impulses, and bringing into reality what previously seemed impossible. White Wind represents the masculine energy of Spirit, bringing your ideas to life with ease, and changes that may seem extremely fast. Watch your breath—it will help you learn to master your reality over these 13 days.Pay attention to your breathing. Over these 13 days, it will help you learn how to navigate and shape your reality more consciously.\n\n"
         ),
