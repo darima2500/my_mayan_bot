@@ -4,8 +4,8 @@ wave_info = {
         "ru": "Волна Белого Ветра. Ик"
     },
     "period": {
-        "en": "December 15 — December 27, 2025",
-        "ru": "15 декабря — 27 декабря 2025"
+        "en": "September 1 — September 13, 2026",
+        "ru": "1 Сентября — 13 Сентября 2026"
     },
     "core_themes": {
         "en": [
@@ -25,9 +25,9 @@ wave_info = {
     },
     "description": {
         "en": (
-            "Wave of the White Wind will bring forward themes of clear communication and the ability to build true dialogue with one another, inviting more and more connection on the level of Spirit.\n\n"
-            "This is a time to catch ideas on the fly — to return to impulses that were long postponed, to activate creative realizations, and to bring into reality what once seemed impossible. White Wind carries a masculine spiritual energy — the energy of expressing ideas with ease and moving through changes that may feel extremely fast.\n"
-            "Pay attention to your breathing. Over these 13 days, it will help you learn how to navigate and shape your reality more consciously.\n\n"
+            "WHITE WIND" is the 2nd sign of the Maya calendar. Its keywords are Spirit, Breath, Communication, and Connections. Energy: Power of Spirit.\n\n"
+            "The Wave of the White Wind will bring up topics of pure communication and the ability to build dialogue with one another, bringing more contact at the Spirit level into life.\n"
+            "This is a time for catching on the fly many ideas that were put on the back burner, realizing creative impulses, and bringing into reality what previously seemed impossible. White Wind represents the masculine energy of Spirit, bringing your ideas to life with ease, and changes that may seem extremely fast. Watch your breath—it will help you learn to master your reality over these 13 days.Pay attention to your breathing. Over these 13 days, it will help you learn how to navigate and shape your reality more consciously.\n\n"
         ),
         "ru": (
             "«БЕЛЫЙ ВЕТЕР» (ИК) – это 2-ой знак календаря майя, его ключевые слова: Дух. Дыхание. Коммуникации и связи. Энергия: Сила Духа.\n\n"
