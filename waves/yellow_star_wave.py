@@ -3,8 +3,8 @@ wave_info = {
         "en": "Yellow Star Wave",
         "ru": "Волна Жёлтой Звезды"
     },
-    "start_date": "2026-01-10",
-    "end_date": "2026-01-22",
+    "start_date": "2026-09-27",
+    "end_date": "2026-10-09",
     "core_themes": {
         "en": [
             "Art",
