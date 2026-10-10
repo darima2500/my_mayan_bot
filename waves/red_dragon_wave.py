@@ -4,8 +4,8 @@ wave_info = {
         "ru": "Волна Красного Дракона"
     },
     "period": {
-        "en": "January 23 — February 04, 2026",
-        "ru": "23 Января - 04 Февраля 2026"
+        "en": "October 10 — October 22, 2026",
+        "ru": "10 Октября - 22 Октября 2026"
     },
     "core_themes": {
         "en": [
